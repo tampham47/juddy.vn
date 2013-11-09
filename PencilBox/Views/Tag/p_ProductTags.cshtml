@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PbData.Entities.pb_HashTag>
+@{Layout = null;}
+
+<div>
+    @foreach (var item in Model)
+    {        
+        @Html.RouteLink("#" + item.TagName, "tagName", 
+            new { item.TagName }, 
+            new { @class = String.Format("tag {0}", item.Theme) });
+    }
+</div>

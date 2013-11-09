@@ -1,0 +1,90 @@
+﻿@model PencilBox.Models.ps_ContactType
+
+@{
+    ViewBag.Title = "Add your contact";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using(Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td class="left-element">Contact Type</td>
+            <td>
+                @foreach (var item in Model.ContactTypes)
+                {
+                    <div class="tag" style="display:inline; padding-left:0px;">
+                        <span style="display:none">
+                            <input type="radio" name="@Html.NameFor(m=>m.UserContact.ContactTypeId)" value="@item.ContactTypeId" id="radio-@item.ContactTypeId" style="width:auto; line-height:25px" />
+                        </span>
+
+                        <label class="label-contact" for="radio-@item.ContactTypeId" style="display:inline">
+                            <span>
+                                <img src="~/Content/images/@item.Icon" width="25" /></span>
+
+                            <span style="line-height:25px; vertical-align:top; font-weight:normal">
+                                @item.TypeName</span>
+                        </label>
+                    </div>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Contact Name</td>
+            <td>
+                <input type="text" name="@Html.NameFor(m=>m.UserContact.ContactName)" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div style="margin-top:20px">
+                    <input type="submit" value="Add Contact" class="modern-button theme-a width120" />
+                    <a href="@Url.Action("Index", "User")" class="modern-button theme-b width80">Cancel</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    @*<div class="element">
+        <p style="padding:8px 0px;">Select your contact type</p>
+        @foreach (var item in Model.ContactTypes)
+        {
+            <div class="tag" style="display:inline; padding-left:0px;">
+                <span style="display:none">
+                    <input type="radio" name="@Html.NameFor(m=>m.UserContact.ContactTypeId)" value="@item.ContactTypeId" id="radio-@item.ContactTypeId" style="width:auto; line-height:25px" />
+                </span>
+
+                <label class="label-contact" for="radio-@item.ContactTypeId" style="display:inline">
+                    <span>
+                        <img src="~/Content/images/@item.Icon" width="25" /></span>
+
+                    <span style="line-height:25px; vertical-align:top; font-weight:normal">
+                        @item.TypeName</span>
+                </label>
+            </div>
+        }
+    </div>
+
+    <div class="element">
+        <p style="padding:4px 0px;">Contact Name</p>
+        <input type="text" name="@Html.NameFor(m=>m.UserContact.ContactName)" />
+    </div>
+
+    <div class="element" style="margin-top:20px">
+        <input type="submit" value="Add Contact" class="modern-button theme-a width120" />
+        <a href="~/Contact" class="modern-button theme-b width80">Cancel</a>
+    </div>*@
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.label-contact').click(function () {
+            $('.label-contact').removeClass('border-bottom');
+            $(this).addClass('border-bottom');
+        });
+    })
+</script>

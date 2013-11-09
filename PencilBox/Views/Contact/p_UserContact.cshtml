@@ -1,0 +1,76 @@
+﻿@model PencilBox.Models.ps_UserContact
+@{Layout = null;}
+
+<table class="grid-content" style="color: #282828">
+    <tr>
+        <td style="width:35px">
+            <img src="~/PencilBox_Data/Avatars/@Model.UserProfile.Avatar" width="35" /></td>
+        <td>
+            <span>
+                @if ((@Model.UserProfile.FirstName != null) && 
+                    (Model.UserProfile.FirstName.Trim() != ""))
+                {
+                    <text>@Model.UserProfile.FirstName @Model.UserProfile.LastName</text>
+                }
+                else
+                {
+                    <text>@Model.UserProfile.UserName</text>
+                }
+            </span></td>
+    </tr>
+    @foreach (var item in Model.Contacts)
+    {
+        <tr>
+            <td style="width:35px">
+                <img src="~/Content/images/@item.pb_ContactType.Icon" width="35" /></td>
+            <td>
+                <span>@item.ContactName</span>
+                @*<span style="float:right">
+                    <a href="~/Contact/Delete?userContactId=@item.UserContactId" class="modern-button theme-b" style="width:80px">Del</a>
+                </span>*@
+            </td>
+
+            @if (ps_Membership.IsAuthenticated() &&
+                Model.UserProfile.UserId == ps_Membership.GetUser().UserId)
+            {
+            <td style="width:30px; padding-right:0px">
+                <a href="~/Contact/Delete?userContactId=@item.UserContactId" >
+                    <img src="~/Content/images/none-delete-light.png" width="30"
+                        onmouseover="this.src='/Content/images/none-delete-red.png'"
+                        onmouseout="this.src='/Content/images/none-delete-light.png'" /></a>
+            </td>
+            }
+        </tr>
+    }
+    @*<tr>
+        <td style="width:35px">
+            <img src="~/Content/images/contact-phone.png" width="35" /></td>
+        <td>
+            <span>01643-652-922</span></td>
+    </tr>
+    <tr>
+        <td style="width:35px">
+            <img src="~/Content/images/contact-mail.png" width="35" /></td>
+        <td>
+            <span>wikiblack713@gmail.com</span></td>
+    </tr>
+    <tr>
+        <td style="width:35px">
+            <img src="~/Content/images/contact-facebook.png" width="35" /></td>
+        <td>
+            <span>http://www.facebook.com/wikiblack</span></td>
+    </tr>
+    <tr>
+        <td style="width:35px">
+            <img src="~/Content/images/contact-skype.png" width="35" /></td>
+        <td>
+            <span>tucuong.pmt</span></td>
+    </tr>
+    <tr>
+        <td style="width:35px">
+            <img src="~/Content/images/contact-yahoo.png" width="35" /></td>
+        <td>
+            <span>wikiblack713</span></td>
+    </tr>*@
+
+</table>

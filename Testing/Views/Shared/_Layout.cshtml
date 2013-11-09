@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>pbox - @ViewBag.Title</title>
+    <link href="~/Content/images/allapp-icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/pb_Script.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    
+    <link href="~/Content/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendoui/styles/kendo.metro.min.css" rel="stylesheet" />
+    <link href="~/Content/pb_Style.css" rel="stylesheet" />
+    <script src="~/Content/kendoui/js/jquery.min.js"></script>
+    <script src="~/Content/kendoui/js/kendo.web.min.js"></script>
+
+    @RenderSection("headercontent", required: false)
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    @Html.Partial("p_Header")
+
+    <div>
+        @RenderSection("featured", required: false)
+    </div>
+
+    <div id="body" >
+        @*@RenderSection("featured", required: false)*@
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section> 
+    </div>
+
+    @Html.Partial("p_Footer")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=298089496948422";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+</html>

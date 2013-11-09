@@ -1,0 +1,113 @@
+﻿@model PencilBox.Models.ps_Order
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_OrderLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td style="text-align:right; width:90px">Product</td>
+            <td><label>@Model.Product.Name</label></td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Price</td>
+            <td>
+                <span id="text_price">@Model.Order.Price</span><span>VNĐ</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Số lượng</td>
+            <td>
+                <select id="drop_Amount" name="@Html.NameFor(m=>m.Order.Amount)">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Thành tiền</td>
+            <td>
+                <span id="text_intoMoney">@Model.Order.Price</span><span>VNĐ</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right; width:90px">Your Name</td>
+            <td>
+                @Html.TextBoxFor(m => m.Order.CustomerName)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align:right;">Phone</td>
+            <td>
+                @Html.TextBoxFor(m => m.Order.CustomerPhone)
+            </td>
+        </tr>        
+        <tr>
+            <td style="text-align:right;">Address</td>
+            <td>
+                @Html.TextBoxFor(m => m.Order.Address)
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Comment</td>
+            <td>
+                @Html.TextAreaFor(m => m.Order.Comment)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align:right;"></td>
+            <td>
+                @Html.HiddenFor(m => m.Order.ProductId)
+                @Html.HiddenFor(m => m.Order.Price)
+                @Html.HiddenFor(m => m.Order.UserId)
+                <input type="submit" value="Order" class="modern-button theme-a width120" />
+                @Html.ActionLink("Cancel", "Detail", "Product", 
+                    new { productId = @Model.Product.ProductId }, 
+                    new { @class = "modern-button theme-b width120" })
+            </td>
+        </tr>
+
+    </table>
+}
+
+@section rightpanel
+{
+    <hgroup class="title">
+        <h3>Notice.</h3></hgroup>
+
+    <p style="margin:8px 0px;">Đơn đặt hàng của bạn sẽ được tự động chuyển tới người có trách nhiệm. Bạn cũng có thể liên lạc với người bán nếu thấy thuận lợi. Trong khoảng thời gian sắp tới pbox sẽ đàm phán với bân giao hàng dể nâng cao chất lượng dịch vụ.</p>
+    <p style="margin:8px 0px;">Bạn vui lòng kiểm tra hàng kỹ trước khi giao tiền</p>
+    <p style="margin:8px 0px;">Đây là mạng buôn bán tự do, vì vậy pbox không chịu trách nhiệm với chất lượng của sản phẩm, vì vậy các bạn nên kiểm tra hàng thật kỹ trước khi giao tiền.</p>
+    <p style="margin:8px 0px;">Hệ thống đang tiến hành nâng cấp, sẽ mau chóng có được những tính năng hữu ích cho khách hàng.</p>
+    <p style="margin:8px 0px;">Chúng tôi tự hào là đối tác của giaohangnhanh hệ thống sẽ giúp các bạn thuận tiên hơn trong quá trình vận chuyển hàng tới khách hàng.</p>
+}
+
+@section scripts
+{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#drop_Amount").kendoDropDownList({
+            change: drop_Amount_Changed
+        });
+
+        function drop_Amount_Changed() {
+            var price = $("#text_price").html();
+            var amount = $("#drop_Amount").val();
+
+            $("#text_intoMoney").html(price * amount);
+        }
+    })
+</script>
+}

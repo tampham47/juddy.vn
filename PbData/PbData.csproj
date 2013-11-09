@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C2BEA14-5FEE-450A-828D-B6450E310906}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PbData</RootNamespace>
+    <AssemblyName>PbData</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\bn_Comment.cs" />
+    <Compile Include="Business\bn_ContactType.cs" />
+    <Compile Include="Business\bn_Enum.cs" />
+    <Compile Include="Business\bn_HashTag.cs" />
+    <Compile Include="Business\bn_Location.cs" />
+    <Compile Include="Business\bn_Order.cs" />
+    <Compile Include="Business\bn_Photo.cs" />
+    <Compile Include="Business\bn_Product.cs" />
+    <Compile Include="Business\bn_ProductTag.cs" />
+    <Compile Include="Business\bn_Reference.cs" />
+    <Compile Include="Business\bn_UserContact.cs" />
+    <Compile Include="Business\bn_UserProfile.cs" />
+    <Compile Include="Entities\Custom\pb_HashTag.cs" />
+    <Compile Include="Entities\Custom\pb_Order.cs" />
+    <Compile Include="Entities\Custom\pb_Photo.cs" />
+    <Compile Include="Entities\Custom\pb_Product.cs" />
+    <Compile Include="Entities\pb_Comment.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_ContactType.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_HashTag.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_HashTag_GetbyProductId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_HashTag_GetbyTagName_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Location.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Location_GetbyId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Location_GetbyUserId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Order.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Order_GetbySalesman_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Order_GetbyUserId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Photo.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Photo_GetbyId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Photo_GetbyProductId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Product.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_ProductTag.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_ProductTag_GetbyHashTagId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_ProductTag_GetbyProductId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_ProductTag_GetbyUserAndTag_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Product_GetbyHashTagId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Product_GetbyId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Product_GetbyUserAndTag_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Product_GetbyUserId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Reference.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_Reference_GetByName_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_UserContact.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_UserContact_GetbyUserId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_UserProfile.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_UserProfile_GetbyId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\pb_UserProfile_GetbyUserName_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PencilBox.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PencilBox.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PencilBox.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PencilBox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PencilBox.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Custom\pb_UserProfile.cs" />
+    <Compile Include="Entities\tp_HashTag_GetbyUserId_Result.cs">
+      <DependentUpon>PencilBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\AttributesHelper.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\bn_Image.cs" />
+    <Compile Include="Utility\bn_HumanCode.cs" />
+    <Compile Include="Utility\bn_HumanPrice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Entities\PencilBox.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PencilBox.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entities\PencilBox.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PencilBox.edmx</DependentUpon>
+      <LastGenOutput>PencilBox.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\PencilBox.edmx.diagram">
+      <DependentUpon>PencilBox.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\PencilBox.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PencilBox.edmx</DependentUpon>
+      <LastGenOutput>PencilBox.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

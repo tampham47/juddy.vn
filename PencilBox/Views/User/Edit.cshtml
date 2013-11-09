@@ -1,0 +1,56 @@
+﻿@model PbData.Entities.pb_UserProfile
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td class="left-element">First Name</td>
+            <td>@Html.TextBoxFor(m => m.FirstName)</td>
+        </tr>
+        <tr>
+            <td class="left-element">Last Name</td>
+            <td>@Html.TextBoxFor(m=>m.LastName)</td>
+        </tr>
+        <tr>
+            <td class="left-element">Date of birth</td>
+            <td>@Html.TextBoxFor(m => m.DateOfBirth, new { id = "datepicker_dateofbirth" })</td>
+        </tr>
+        <tr>
+            <td class="left-element">Avatar</td>
+            <td><input type="file" name="avatar_attachment" id="upload_avatar" /></td>
+        </tr>
+        <tr>
+            <td class="left-element"></td>
+            <td>
+                @Html.HiddenFor(m => m.Avatar)
+                <input type="submit" class="modern-button theme-a width120" />
+                <a href="@Url.Action("Index", "User")" class="modern-button theme-b width80">Cancel</a>
+            </td>
+        </tr>
+    </table>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#upload_avatar").kendoUpload({
+            async: {
+                saveUrl: "/Upload/UploadAvatar?userId=@Model.UserId",
+                autoUpload: true
+            }
+        });
+
+        $("#datepicker_dateofbirth").kendoDatePicker({
+            format: "dd/MM/yyyy"
+        });
+    });
+</script>

@@ -1,0 +1,32 @@
+﻿@model PbData.Entities.pb_Product
+
+@{
+    Layout = null;
+}
+
+<div style="display:table; width:100%" class="border-bottom">
+    <div style="display:inline-block; width:200px; max-height:200px; overflow:hidden">
+        <a href="@Url.Action("Detail", "Product", new { productId = Model.ProductId })">
+            <img src="@Url.Content("/PencilBox_Data/Images/" + Model.CoverImage.ImageFixW1())" width="200" />
+        </a>
+    </div>
+
+    <div style="display:inline-block; vertical-align:top; margin-left:10px">
+        <b style="font-size:18px">
+            <a href="@Url.Action("Detail", "Product", new { productId = @Model.ProductId })">
+                @Model.Name
+            </a>
+        </b><br />
+
+        <table class="grid">
+            <tr>
+                <td style="width:80px"><span>Price</span></td>
+                <td><b>@Model.Price</b></td>
+            </tr>
+            <tr>
+                <td><span>Favourite</span></td>
+                <td><b>1250</b></td>
+            </tr>
+        </table>
+    </div>
+</div>

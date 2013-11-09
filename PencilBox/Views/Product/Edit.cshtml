@@ -1,0 +1,47 @@
+﻿@model PencilBox.Models.ps_ProductCreate
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("p_ProductInput", Model)
+}
+
+@section scripts
+{
+   <script type="text/javascript">
+       $(document).ready(function () {
+           $("#upload_files").kendoUpload({
+               async: {
+                   saveUrl: "/Upload/Save",
+                   autoUpload: true
+               }
+           });
+
+           $("#editor").kendoEditor({
+               tools: [
+                   "bold",
+                   "italic",
+                   "underline",
+                   "foreColor",
+                   "backColor",
+                   "justifyLeft",
+                   "justifyCenter",
+                   "justifyRight",
+                   "justifyFull",
+                   "insertUnorderedList",
+                   "insertOrderedList",
+                   "indent",
+                   "outdent",
+               ]
+           });
+       });
+   </script>
+}

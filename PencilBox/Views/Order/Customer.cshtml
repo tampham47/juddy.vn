@@ -1,0 +1,15 @@
+﻿@model IEnumerable<PbData.Entities.pb_Order>
+
+@{
+    ViewBag.Title = "Customer Orders";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("p_OrderView", item)
+}

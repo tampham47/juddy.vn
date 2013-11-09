@@ -1,0 +1,21 @@
+﻿@model IEnumerable<PbData.Entities.pb_Photo>
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+<h2>Photos</h2>
+
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <img src="http://localhost:2064/PencilBox_Data/Images/@item.ImagePath" width="200" />
+        </td>
+        <td>
+            <a href="/Tam/UpdatePhotoStatus?photoId=@item.PhotoId">@item.PhotoId</a>
+        </td>
+    </tr>    
+}
+</table>

@@ -1,0 +1,1670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PencilBoxModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PencilBoxModelStoreContainer">
+          <EntitySet Name="pb_Comment" EntityType="PencilBoxModel.Store.pb_Comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_ContactType" EntityType="PencilBoxModel.Store.pb_ContactType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_HashTag" EntityType="PencilBoxModel.Store.pb_HashTag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_Location" EntityType="PencilBoxModel.Store.pb_Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_Order" EntityType="PencilBoxModel.Store.pb_Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_Photo" EntityType="PencilBoxModel.Store.pb_Photo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_Product" EntityType="PencilBoxModel.Store.pb_Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_ProductTag" EntityType="PencilBoxModel.Store.pb_ProductTag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_Reference" EntityType="PencilBoxModel.Store.pb_Reference" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_UserContact" EntityType="PencilBoxModel.Store.pb_UserContact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pb_UserProfile" EntityType="PencilBoxModel.Store.pb_UserProfile" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_pb_Comment_pb_Product" Association="PencilBoxModel.Store.FK_pb_Comment_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Comment" EntitySet="pb_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Comment_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_Comment_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Comment" EntitySet="pb_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_HashTag_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_HashTag_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_HashTag" EntitySet="pb_HashTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Location_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_Location_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Location" EntitySet="pb_Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Order_pb_Product" Association="PencilBoxModel.Store.FK_pb_Order_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Order" EntitySet="pb_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Order_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_Order_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Order" EntitySet="pb_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Photo_pb_Product" Association="PencilBoxModel.Store.FK_pb_Photo_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Photo" EntitySet="pb_Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Photo_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_Photo_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Photo" EntitySet="pb_Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Product_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_Product_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Product" EntitySet="pb_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_HashTag" Association="PencilBoxModel.Store.FK_pb_ProductTag_pb_HashTag">
+            <End Role="pb_HashTag" EntitySet="pb_HashTag" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_Product" Association="PencilBoxModel.Store.FK_pb_ProductTag_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_ProductTag_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_UserContact_pb_ContactType" Association="PencilBoxModel.Store.FK_pb_UserContact_pb_ContactType">
+            <End Role="pb_ContactType" EntitySet="pb_ContactType" />
+            <End Role="pb_UserContact" EntitySet="pb_UserContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_UserContact_pb_UserProfile" Association="PencilBoxModel.Store.FK_pb_UserContact_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_UserContact" EntitySet="pb_UserContact" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="pb_Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_ContactType">
+          <Key>
+            <PropertyRef Name="ContactTypeId" />
+          </Key>
+          <Property Name="ContactTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Icon" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="Order" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_HashTag">
+          <Key>
+            <PropertyRef Name="HashTagId" />
+          </Key>
+          <Property Name="HashTagId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="TextName" Type="nvarchar" MaxLength="128" />
+          <Property Name="TagName" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="IconPath" Type="varchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="CustomerPhone" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Amount" Type="tinyint" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_Photo">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" />
+          <Property Name="ImagePath" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ImageW1" Type="nvarchar" MaxLength="128" />
+          <Property Name="ImageH1" Type="nvarchar" MaxLength="128" />
+          <Property Name="ImageH2" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="pb_Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="DiscountPrice" Type="float" />
+          <Property Name="HumanCode" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_ProductTag">
+          <Key>
+            <PropertyRef Name="ProductTagId" />
+          </Key>
+          <Property Name="ProductTagId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HashTagId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="128" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_Reference">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="pb_UserContact">
+          <Key>
+            <PropertyRef Name="UserContactId" />
+          </Key>
+          <Property Name="UserContactId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactTypeId" Type="int" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MembershipId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+          <Property Name="Avatar" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="56" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="56" />
+          <Property Name="DateOfBirth" Type="smalldatetime" />
+          <Property Name="DateUpdated" Type="datetime" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_pb_Comment_pb_Product">
+          <End Role="pb_Product" Type="PencilBoxModel.Store.pb_Product" Multiplicity="1" />
+          <End Role="pb_Comment" Type="PencilBoxModel.Store.pb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Comment">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Comment_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_Comment" Type="PencilBoxModel.Store.pb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Comment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_HashTag_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="0..1" />
+          <End Role="pb_HashTag" Type="PencilBoxModel.Store.pb_HashTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_HashTag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Location_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_Location" Type="PencilBoxModel.Store.pb_Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Location">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Order_pb_Product">
+          <End Role="pb_Product" Type="PencilBoxModel.Store.pb_Product" Multiplicity="1" />
+          <End Role="pb_Order" Type="PencilBoxModel.Store.pb_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Order">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Order_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="0..1" />
+          <End Role="pb_Order" Type="PencilBoxModel.Store.pb_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Photo_pb_Product">
+          <End Role="pb_Product" Type="PencilBoxModel.Store.pb_Product" Multiplicity="0..1" />
+          <End Role="pb_Photo" Type="PencilBoxModel.Store.pb_Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Photo">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Photo_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_Photo" Type="PencilBoxModel.Store.pb_Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Photo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Product_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_Product" Type="PencilBoxModel.Store.pb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Product">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_HashTag">
+          <End Role="pb_HashTag" Type="PencilBoxModel.Store.pb_HashTag" Multiplicity="1" />
+          <End Role="pb_ProductTag" Type="PencilBoxModel.Store.pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_HashTag">
+              <PropertyRef Name="HashTagId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="HashTagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_Product">
+          <End Role="pb_Product" Type="PencilBoxModel.Store.pb_Product" Multiplicity="1" />
+          <End Role="pb_ProductTag" Type="PencilBoxModel.Store.pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_ProductTag" Type="PencilBoxModel.Store.pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_UserContact_pb_ContactType">
+          <End Role="pb_ContactType" Type="PencilBoxModel.Store.pb_ContactType" Multiplicity="1" />
+          <End Role="pb_UserContact" Type="PencilBoxModel.Store.pb_UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_ContactType">
+              <PropertyRef Name="ContactTypeId" />
+            </Principal>
+            <Dependent Role="pb_UserContact">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_UserContact_pb_UserProfile">
+          <End Role="pb_UserProfile" Type="PencilBoxModel.Store.pb_UserProfile" Multiplicity="1" />
+          <End Role="pb_UserContact" Type="PencilBoxModel.Store.pb_UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_UserContact">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="pb_Comment_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="commentId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="comment" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Comment_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="commentId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Comment_GetbyProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_HashTag_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="type" Type="tinyint" Mode="In" />
+          <Parameter Name="textName" Type="nvarchar" Mode="In" />
+          <Parameter Name="tagName" Type="varchar" Mode="In" />
+          <Parameter Name="iconPath" Type="varchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_HashTag_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_HashTag_GetbyProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_HashTag_GetbyTagName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tagName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_HashTag_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="type" Type="tinyint" Mode="In" />
+          <Parameter Name="iconPath" Type="varchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Location_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="latitude" Type="float" Mode="In" />
+          <Parameter Name="longitude" Type="float" Mode="In" />
+          <Parameter Name="address" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Location_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Location_GetbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Location_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Location_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="latitude" Type="float" Mode="In" />
+          <Parameter Name="longitude" Type="float" Mode="In" />
+          <Parameter Name="address" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Order_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="customerName" Type="nvarchar" Mode="In" />
+          <Parameter Name="customerPhone" Type="varchar" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+          <Parameter Name="amount" Type="tinyint" Mode="In" />
+          <Parameter Name="address" Type="nvarchar" Mode="In" />
+          <Parameter Name="comment" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Order_GetbySalesman" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="pb_Order_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Order_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="orderId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="imagePath" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_GetbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_GetbyProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_UpdateImageH1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="imageH1" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_UpdateImageH2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="imageH2" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_UpdateImageW1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="imageW1" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_UpdateProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Photo_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="photoId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="status" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+          <Parameter Name="description" Type="ntext" Mode="In" />
+          <Parameter Name="humanCode" Type="char" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_GetbyHashTagId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_GetbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_GetbyUserAndTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_UpdateDiscountPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="discountPrice" Type="float" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_UpdateHumanCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="humanCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productTagId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="comment" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productTagId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_DeleteByProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_GetbyHashTagId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_GetbyProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_ProductTag_GetbyUserAndTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Reference_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Reference_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Reference_GetByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pb_Reference_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_UserContact_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userContactId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactTypeId" Type="int" Mode="In" />
+          <Parameter Name="contactName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_UserContact_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userContactId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_UserContact_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_UserContact_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userContactId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactTypeId" Type="int" Mode="In" />
+          <Parameter Name="contactName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_UserProfile_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="pb_UserProfile_GetbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_UserProfile_GetbyUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pb_UserProfile_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateOfBirth" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="pb_UserProfile_UpdateAvatar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="avatar" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tp_HashTag_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="type" Type="tinyint" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PencilBoxModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="pb_Entities" annotation:LazyLoadingEnabled="true" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <FunctionImport Name="pb_Comment_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="commentId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="comment" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Comment_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="commentId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Comment_GetbyProductId" EntitySet="pb_Comment" ReturnType="Collection(PencilBoxModel.pb_Comment)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_HashTag_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="type" Mode="In" Type="Byte" />
+            <Parameter Name="textName" Mode="In" Type="String" />
+            <Parameter Name="tagName" Mode="In" Type="String" />
+            <Parameter Name="iconPath" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_HashTag_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_HashTag_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+            <Parameter Name="type" Mode="In" Type="Byte" />
+            <Parameter Name="iconPath" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Location_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="locationId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="latitude" Mode="In" Type="Double" />
+            <Parameter Name="longitude" Mode="In" Type="Double" />
+            <Parameter Name="address" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Location_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="locationId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Location_GetbyId" EntitySet="pb_Location" ReturnType="Collection(PencilBoxModel.pb_Location)">
+          <Parameter Name="locationId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Location_GetbyUserId" EntitySet="pb_Location" ReturnType="Collection(PencilBoxModel.pb_Location)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Location_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="locationId" Mode="In" Type="Guid" />
+            <Parameter Name="latitude" Mode="In" Type="Double" />
+            <Parameter Name="longitude" Mode="In" Type="Double" />
+            <Parameter Name="address" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="imagePath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="photoId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_GetbyId" EntitySet="pb_Photo" ReturnType="Collection(PencilBoxModel.pb_Photo)">
+          <Parameter Name="photoId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_GetbyProductId" EntitySet="pb_Photo" ReturnType="Collection(PencilBoxModel.pb_Photo)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_Create" a:MethodAccess="Internal" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="humanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_GetbyId" EntitySet="pb_Product" ReturnType="Collection(PencilBoxModel.pb_Product)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_GetbyUserId" EntitySet="pb_Product" ReturnType="Collection(PencilBoxModel.pb_Product)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="productTagId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="comment" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="productTagId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_GetbyHashTagId" EntitySet="pb_ProductTag" ReturnType="Collection(PencilBoxModel.pb_ProductTag)">
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_GetbyProductId" EntitySet="pb_ProductTag" ReturnType="Collection(PencilBoxModel.pb_ProductTag)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserContact_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="userContactId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="contactTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="contactName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserContact_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="userContactId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserContact_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="userContactId" Mode="In" Type="Guid" />
+            <Parameter Name="contactTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="contactName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserProfile_GetAll" />
+          <FunctionImport Name="pb_UserProfile_GetbyId" EntitySet="pb_UserProfile" ReturnType="Collection(PencilBoxModel.pb_UserProfile)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserProfile_GetbyUserName" EntitySet="pb_UserProfile" ReturnType="Collection(PencilBoxModel.pb_UserProfile)">
+          <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserProfile_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="dateOfBirth" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_UpdateDiscountPrice" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="discountPrice" Mode="In" Type="Double" />
+          </FunctionImport>
+          <EntitySet Name="pb_Comment" EntityType="PencilBoxModel.pb_Comment" />
+          <EntitySet Name="pb_ContactType" EntityType="PencilBoxModel.pb_ContactType" />
+          <EntitySet Name="pb_HashTag" EntityType="PencilBoxModel.pb_HashTag" />
+          <EntitySet Name="pb_Location" EntityType="PencilBoxModel.pb_Location" />
+          <EntitySet Name="pb_Photo" EntityType="PencilBoxModel.pb_Photo" />
+          <EntitySet Name="pb_ProductTag" EntityType="PencilBoxModel.pb_ProductTag" />
+          <EntitySet Name="pb_UserContact" EntityType="PencilBoxModel.pb_UserContact" />
+          <EntitySet Name="pb_UserProfile" EntityType="PencilBoxModel.pb_UserProfile" />
+          <AssociationSet Name="FK_pb_Comment_pb_UserProfile" Association="PencilBoxModel.FK_pb_Comment_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Comment" EntitySet="pb_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_UserContact_pb_ContactType" Association="PencilBoxModel.FK_pb_UserContact_pb_ContactType">
+            <End Role="pb_ContactType" EntitySet="pb_ContactType" />
+            <End Role="pb_UserContact" EntitySet="pb_UserContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_HashTag_pb_UserProfile" Association="PencilBoxModel.FK_pb_HashTag_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_HashTag" EntitySet="pb_HashTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_HashTag" Association="PencilBoxModel.FK_pb_ProductTag_pb_HashTag">
+            <End Role="pb_HashTag" EntitySet="pb_HashTag" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Location_pb_UserProfile" Association="PencilBoxModel.FK_pb_Location_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Location" EntitySet="pb_Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Photo_pb_UserProfile" Association="PencilBoxModel.FK_pb_Photo_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Photo" EntitySet="pb_Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_UserProfile" Association="PencilBoxModel.FK_pb_ProductTag_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_UserContact_pb_UserProfile" Association="PencilBoxModel.FK_pb_UserContact_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_UserContact" EntitySet="pb_UserContact" />
+          </AssociationSet>
+          <FunctionImport Name="pb_Photo_UpdateProductId" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_HashTag_GetbyTagName" EntitySet="pb_HashTag" ReturnType="Collection(PencilBoxModel.pb_HashTag)">
+          <Parameter Name="tagName" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="pb_Product" EntityType="PencilBoxModel.pb_Product" />
+          <AssociationSet Name="FK_pb_Comment_pb_Product" Association="PencilBoxModel.FK_pb_Comment_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Comment" EntitySet="pb_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Photo_pb_Product" Association="PencilBoxModel.FK_pb_Photo_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Photo" EntitySet="pb_Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_ProductTag_pb_Product" Association="PencilBoxModel.FK_pb_ProductTag_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_ProductTag" EntitySet="pb_ProductTag" />
+          </AssociationSet>
+          <FunctionImport Name="pb_UserContact_GetbyUserId" EntitySet="pb_UserContact" ReturnType="Collection(PencilBoxModel.pb_UserContact)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_HashTag_GetbyProductId" EntitySet="pb_HashTag" ReturnType="Collection(PencilBoxModel.pb_HashTag)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_UserProfile_UpdateAvatar" ReturnType="Collection(Int32)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="avatar" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Order_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="orderId" Mode="In" Type="Guid" />
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="customerName" Mode="In" Type="String" />
+            <Parameter Name="customerPhone" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+            <Parameter Name="amount" Mode="In" Type="Byte" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="comment" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Order_GetbySalesman" EntitySet="pb_Order" ReturnType="Collection(PencilBoxModel.pb_Order)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Order_GetbyUserId" EntitySet="pb_Order" ReturnType="Collection(PencilBoxModel.pb_Order)">
+          <Parameter Name="userId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Order_UpdateStatus" ReturnType="Collection(Int32)">
+            <Parameter Name="orderId" Mode="In" Type="Guid" />
+            <Parameter Name="status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="tp_HashTag_GetbyUserId" EntitySet="pb_HashTag" ReturnType="Collection(PencilBoxModel.pb_HashTag)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="type" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_DeleteByProductId" ReturnType="Collection(Int32)">
+          <Parameter Name="productId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_GetbyHashTagId" EntitySet="pb_Product" ReturnType="Collection(PencilBoxModel.pb_Product)">
+          <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_GetbyUserAndTag" EntitySet="pb_Product" ReturnType="Collection(PencilBoxModel.pb_Product)">
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_ProductTag_GetbyUserAndTag" EntitySet="pb_ProductTag" ReturnType="Collection(PencilBoxModel.pb_ProductTag)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="hashTagId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <EntitySet Name="pb_Order" EntityType="PencilBoxModel.pb_Order" />
+          <AssociationSet Name="FK_pb_Order_pb_Product" Association="PencilBoxModel.FK_pb_Order_pb_Product">
+            <End Role="pb_Product" EntitySet="pb_Product" />
+            <End Role="pb_Order" EntitySet="pb_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pb_Order_pb_UserProfile" Association="PencilBoxModel.FK_pb_Order_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Order" EntitySet="pb_Order" />
+          </AssociationSet>
+          <EntitySet Name="pb_Reference" EntityType="PencilBoxModel.pb_Reference" />
+          <FunctionImport Name="pb_Reference_Create" ReturnType="Collection(Int32)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Reference_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Reference_GetByName" EntitySet="pb_Reference" ReturnType="Collection(PencilBoxModel.pb_Reference)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Reference_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+          </FunctionImport>
+          <AssociationSet Name="FK_pb_Product_pb_UserProfile" Association="PencilBoxModel.FK_pb_Product_pb_UserProfile">
+            <End Role="pb_UserProfile" EntitySet="pb_UserProfile" />
+            <End Role="pb_Product" EntitySet="pb_Product" />
+          </AssociationSet>
+          <FunctionImport Name="pb_Product_UpdateStatus" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="status" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_UpdateHumanCode" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="humanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_UpdateStatus" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="status" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_UpdateImageH1" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="imageH1" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_UpdateImageH2" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="imageH2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Photo_UpdateImageW1" ReturnType="Collection(Int32)">
+            <Parameter Name="photoId" Mode="In" Type="Guid" />
+            <Parameter Name="imageW1" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="pb_Location_GetbyId_Result">
+          <Property Type="Guid" Name="LocationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Location_GetbyUserId_Result">
+          <Property Type="Guid" Name="LocationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Photo_GetbyId_Result">
+          <Property Type="Guid" Name="PhotoId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="String" Name="ImagePath" Nullable="false" MaxLength="128" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Photo_GetbyProductId_Result">
+          <Property Type="Guid" Name="PhotoId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="String" Name="ImagePath" Nullable="false" MaxLength="128" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Product_GetbyId_Result">
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Product_GetbyUserId_Result">
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_ProductTag_GetbyHashTagId_Result">
+          <Property Type="Guid" Name="ProductTagId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_ProductTag_GetbyProductId_Result">
+          <Property Type="Guid" Name="ProductTagId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_UserProfile_GetbyId_Result">
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="MembershipId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="56" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="56" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="56" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="16" />
+        </ComplexType>
+        <ComplexType Name="pb_UserProfile_GetbyUserName_Result">
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="MembershipId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="56" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="56" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="56" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="16" />
+        </ComplexType>
+        <EntityType Name="pb_Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Type="Guid" Name="CommentId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Comment_pb_UserProfile" FromRole="pb_Comment" ToRole="pb_UserProfile" />
+          <NavigationProperty Name="pb_Product" Relationship="PencilBoxModel.FK_pb_Comment_pb_Product" FromRole="pb_Comment" ToRole="pb_Product" />
+        </EntityType>
+        <EntityType Name="pb_ContactType">
+          <Key>
+            <PropertyRef Name="ContactTypeId" />
+          </Key>
+          <Property Type="Int32" Name="ContactTypeId" Nullable="false" />
+          <NavigationProperty Name="pb_UserContact" Relationship="PencilBoxModel.FK_pb_UserContact_pb_ContactType" FromRole="pb_ContactType" ToRole="pb_UserContact" />
+          <Property Type="String" Name="Icon" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Order" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pb_HashTag">
+          <Key>
+            <PropertyRef Name="HashTagId" />
+          </Key>
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <Property Type="String" Name="TagName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IconPath" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_HashTag_pb_UserProfile" FromRole="pb_HashTag" ToRole="pb_UserProfile" />
+          <NavigationProperty Name="pb_ProductTag" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_HashTag" FromRole="pb_HashTag" ToRole="pb_ProductTag" />
+          <Property Type="String" Name="TextName" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="pb_Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Type="Guid" Name="LocationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Location_pb_UserProfile" FromRole="pb_Location" ToRole="pb_UserProfile" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="pb_Photo">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Type="Guid" Name="PhotoId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" />
+          <Property Type="String" Name="ImagePath" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Photo_pb_UserProfile" FromRole="pb_Photo" ToRole="pb_UserProfile" />
+          <NavigationProperty Name="pb_Product" Relationship="PencilBoxModel.FK_pb_Photo_pb_Product" FromRole="pb_Photo" ToRole="pb_Product" />
+          <Property Type="String" Name="ImageW1" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImageH1" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImageH2" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="pb_ProductTag">
+          <Key>
+            <PropertyRef Name="ProductTagId" />
+          </Key>
+          <Property Type="Guid" Name="ProductTagId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_HashTag" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_HashTag" FromRole="pb_ProductTag" ToRole="pb_HashTag" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_UserProfile" FromRole="pb_ProductTag" ToRole="pb_UserProfile" />
+          <NavigationProperty Name="pb_Product" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_Product" FromRole="pb_ProductTag" ToRole="pb_Product" />
+        </EntityType>
+        <EntityType Name="pb_UserContact">
+          <Key>
+            <PropertyRef Name="UserContactId" />
+          </Key>
+          <Property Type="Guid" Name="UserContactId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="ContactTypeId" Nullable="false" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="pb_ContactType" Relationship="PencilBoxModel.FK_pb_UserContact_pb_ContactType" FromRole="pb_UserContact" ToRole="pb_ContactType" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_UserContact_pb_UserProfile" FromRole="pb_UserContact" ToRole="pb_UserProfile" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="pb_UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="MembershipId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfBirth" Precision="0" />
+          <NavigationProperty Name="pb_Comment" Relationship="PencilBoxModel.FK_pb_Comment_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_Comment" />
+          <NavigationProperty Name="pb_HashTag" Relationship="PencilBoxModel.FK_pb_HashTag_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_HashTag" />
+          <NavigationProperty Name="pb_Location" Relationship="PencilBoxModel.FK_pb_Location_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_Location" />
+          <NavigationProperty Name="pb_Photo" Relationship="PencilBoxModel.FK_pb_Photo_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_Photo" />
+          <NavigationProperty Name="pb_ProductTag" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_ProductTag" />
+          <NavigationProperty Name="pb_UserContact" Relationship="PencilBoxModel.FK_pb_UserContact_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_UserContact" />
+          <Property Type="String" Name="Avatar" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_Order" Relationship="PencilBoxModel.FK_pb_Order_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_Order" />
+          <NavigationProperty Name="pb_Product" Relationship="PencilBoxModel.FK_pb_Product_pb_UserProfile" FromRole="pb_UserProfile" ToRole="pb_Product" />
+        </EntityType>
+        <Association Name="FK_pb_Comment_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Comment" Role="pb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Comment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_UserContact_pb_ContactType">
+          <End Type="PencilBoxModel.pb_ContactType" Role="pb_ContactType" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_UserContact" Role="pb_UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_ContactType">
+              <PropertyRef Name="ContactTypeId" />
+            </Principal>
+            <Dependent Role="pb_UserContact">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_HashTag_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="0..1" />
+          <End Type="PencilBoxModel.pb_HashTag" Role="pb_HashTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_HashTag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_HashTag">
+          <End Type="PencilBoxModel.pb_HashTag" Role="pb_HashTag" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_ProductTag" Role="pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_HashTag">
+              <PropertyRef Name="HashTagId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="HashTagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Location_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Location" Role="pb_Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Location">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Photo_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Photo" Role="pb_Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Photo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_ProductTag" Role="pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_UserContact_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_UserContact" Role="pb_UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_UserContact">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="pb_HashTag_GetbyTagName_Result">
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <Property Type="String" Name="TagName" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="IconPath" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="pb_Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Double" Name="DiscountPrice" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_Comment" Relationship="PencilBoxModel.FK_pb_Comment_pb_Product" FromRole="pb_Product" ToRole="pb_Comment" />
+          <NavigationProperty Name="pb_Photo" Relationship="PencilBoxModel.FK_pb_Photo_pb_Product" FromRole="pb_Product" ToRole="pb_Photo" />
+          <NavigationProperty Name="pb_ProductTag" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_Product" FromRole="pb_Product" ToRole="pb_ProductTag" />
+          <NavigationProperty Name="pb_Order" Relationship="PencilBoxModel.FK_pb_Order_pb_Product" FromRole="pb_Product" ToRole="pb_Order" />
+          <Property Type="String" Name="HumanCode" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Product_pb_UserProfile" FromRole="pb_Product" ToRole="pb_UserProfile" />
+        </EntityType>
+        <Association Name="FK_pb_Comment_pb_Product">
+          <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Comment" Role="pb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Comment">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Photo_pb_Product">
+          <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="0..1" />
+          <End Type="PencilBoxModel.pb_Photo" Role="pb_Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Photo">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_ProductTag_pb_Product">
+          <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_ProductTag" Role="pb_ProductTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_ProductTag">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="pb_UserContact_GetbyUserId_Result">
+          <Property Type="Guid" Name="UserContactId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="ContactTypeId" Nullable="false" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="pb_HashTag_GetbyProductId_Result">
+          <Property Type="Guid" Name="HashTagId" Nullable="true" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="Byte" Name="Type" Nullable="true" />
+          <Property Type="String" Name="TagName" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="IconPath" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Order_GetbySalesman_Result">
+          <Property Type="Guid" Name="OrderId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="CustomerPhone" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Byte" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="500" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Order_GetbyUserId_Result">
+          <Property Type="Guid" Name="OrderId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="CustomerPhone" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Byte" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="500" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="tp_HashTag_GetbyUserId_Result">
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="true" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <Property Type="String" Name="TagName" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="IconPath" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Product_GetbyHashTagId_Result">
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Double" Name="DiscountPrice" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_Product_GetbyUserAndTag_Result">
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Double" Name="DiscountPrice" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pb_ProductTag_GetbyUserAndTag_Result">
+          <Property Type="Guid" Name="ProductTagId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="HashTagId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="pb_Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Type="Guid" Name="OrderId" Nullable="false" />
+          <Property Type="Guid" Name="ProductId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerPhone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="Byte" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <NavigationProperty Name="pb_Product" Relationship="PencilBoxModel.FK_pb_Order_pb_Product" FromRole="pb_Order" ToRole="pb_Product" />
+          <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Order_pb_UserProfile" FromRole="pb_Order" ToRole="pb_UserProfile" />
+        </EntityType>
+        <Association Name="FK_pb_Order_pb_Product">
+          <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Order" Role="pb_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="pb_Order">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pb_Order_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="0..1" />
+          <End Type="PencilBoxModel.pb_Order" Role="pb_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="pb_Reference">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="pb_Reference_GetByName_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="256" />
+        </ComplexType>
+        <Association Name="FK_pb_Product_pb_UserProfile">
+          <End Type="PencilBoxModel.pb_UserProfile" Role="pb_UserProfile" Multiplicity="1" />
+          <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pb_UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="pb_Product">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PencilBoxModelStoreContainer" CdmEntityContainer="pb_Entities">
+          <FunctionImportMapping FunctionImportName="pb_Comment_Create" FunctionName="PencilBoxModel.Store.pb_Comment_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Comment_Delete" FunctionName="PencilBoxModel.Store.pb_Comment_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_Comment_GetbyProductId" FunctionName="PencilBoxModel.Store.pb_Comment_GetbyProductId" />
+          <FunctionImportMapping FunctionImportName="pb_HashTag_Create" FunctionName="PencilBoxModel.Store.pb_HashTag_Create" />
+          <FunctionImportMapping FunctionImportName="pb_HashTag_Delete" FunctionName="PencilBoxModel.Store.pb_HashTag_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_HashTag_Update" FunctionName="PencilBoxModel.Store.pb_HashTag_Update" />
+          <FunctionImportMapping FunctionImportName="pb_Location_Create" FunctionName="PencilBoxModel.Store.pb_Location_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Location_Delete" FunctionName="PencilBoxModel.Store.pb_Location_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_Location_GetbyId" FunctionName="PencilBoxModel.Store.pb_Location_GetbyId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Location_GetbyUserId" FunctionName="PencilBoxModel.Store.pb_Location_GetbyUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Location_Update" FunctionName="PencilBoxModel.Store.pb_Location_Update" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_Create" FunctionName="PencilBoxModel.Store.pb_Photo_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_Delete" FunctionName="PencilBoxModel.Store.pb_Photo_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_GetbyId" FunctionName="PencilBoxModel.Store.pb_Photo_GetbyId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Photo_GetbyProductId" FunctionName="PencilBoxModel.Store.pb_Photo_GetbyProductId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Product_Create" FunctionName="PencilBoxModel.Store.pb_Product_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Product_Delete" FunctionName="PencilBoxModel.Store.pb_Product_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_Product_GetbyId" FunctionName="PencilBoxModel.Store.pb_Product_GetbyId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Product_GetbyUserId" FunctionName="PencilBoxModel.Store.pb_Product_GetbyUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Product_Update" FunctionName="PencilBoxModel.Store.pb_Product_Update" />
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_Create" FunctionName="PencilBoxModel.Store.pb_ProductTag_Create" />
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_Delete" FunctionName="PencilBoxModel.Store.pb_ProductTag_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_GetbyHashTagId" FunctionName="PencilBoxModel.Store.pb_ProductTag_GetbyHashTagId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_GetbyProductId" FunctionName="PencilBoxModel.Store.pb_ProductTag_GetbyProductId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_UserContact_Create" FunctionName="PencilBoxModel.Store.pb_UserContact_Create" />
+          <FunctionImportMapping FunctionImportName="pb_UserContact_Delete" FunctionName="PencilBoxModel.Store.pb_UserContact_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_UserContact_Update" FunctionName="PencilBoxModel.Store.pb_UserContact_Update" />
+          <FunctionImportMapping FunctionImportName="pb_UserProfile_GetAll" FunctionName="PencilBoxModel.Store.pb_UserProfile_GetAll" />
+          <FunctionImportMapping FunctionImportName="pb_UserProfile_GetbyId" FunctionName="PencilBoxModel.Store.pb_UserProfile_GetbyId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_UserProfile_GetbyUserName" FunctionName="PencilBoxModel.Store.pb_UserProfile_GetbyUserName">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_UserProfile_Update" FunctionName="PencilBoxModel.Store.pb_UserProfile_Update" />
+          <FunctionImportMapping FunctionImportName="pb_Product_UpdateDiscountPrice" FunctionName="PencilBoxModel.Store.pb_Product_UpdateDiscountPrice" />
+          <EntitySetMapping Name="pb_Comment">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Comment">
+              <MappingFragment StoreEntitySet="pb_Comment">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_ContactType">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_ContactType">
+              <MappingFragment StoreEntitySet="pb_ContactType">
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_HashTag">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_HashTag">
+              <MappingFragment StoreEntitySet="pb_HashTag">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="TextName" ColumnName="TextName" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IconPath" ColumnName="IconPath" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="HashTagId" ColumnName="HashTagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_Location">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Location">
+              <MappingFragment StoreEntitySet="pb_Location">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_Photo">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Photo">
+              <MappingFragment StoreEntitySet="pb_Photo">
+                <ScalarProperty Name="ImageH2" ColumnName="ImageH2" />
+                <ScalarProperty Name="ImageH1" ColumnName="ImageH1" />
+                <ScalarProperty Name="ImageW1" ColumnName="ImageW1" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_ProductTag">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_ProductTag">
+              <MappingFragment StoreEntitySet="pb_ProductTag">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="HashTagId" ColumnName="HashTagId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductTagId" ColumnName="ProductTagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_UserContact">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_UserContact">
+              <MappingFragment StoreEntitySet="pb_UserContact">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserContactId" ColumnName="UserContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_UserProfile">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_UserProfile">
+              <MappingFragment StoreEntitySet="pb_UserProfile">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MembershipId" ColumnName="MembershipId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pb_Photo_UpdateProductId" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateProductId" />
+          <FunctionImportMapping FunctionImportName="pb_HashTag_GetbyTagName" FunctionName="PencilBoxModel.Store.pb_HashTag_GetbyTagName">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="pb_Product">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Product">
+              <MappingFragment StoreEntitySet="pb_Product">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HumanCode" ColumnName="HumanCode" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pb_UserContact_GetbyUserId" FunctionName="PencilBoxModel.Store.pb_UserContact_GetbyUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_HashTag_GetbyProductId" FunctionName="PencilBoxModel.Store.pb_HashTag_GetbyProductId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_UserProfile_UpdateAvatar" FunctionName="PencilBoxModel.Store.pb_UserProfile_UpdateAvatar" />
+          <FunctionImportMapping FunctionImportName="pb_Order_Create" FunctionName="PencilBoxModel.Store.pb_Order_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Order_GetbySalesman" FunctionName="PencilBoxModel.Store.pb_Order_GetbySalesman">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Order_GetbyUserId" FunctionName="PencilBoxModel.Store.pb_Order_GetbyUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Order_UpdateStatus" FunctionName="PencilBoxModel.Store.pb_Order_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="tp_HashTag_GetbyUserId" FunctionName="PencilBoxModel.Store.tp_HashTag_GetbyUserId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_DeleteByProductId" FunctionName="PencilBoxModel.Store.pb_ProductTag_DeleteByProductId" />
+          <FunctionImportMapping FunctionImportName="pb_Product_GetbyHashTagId" FunctionName="PencilBoxModel.Store.pb_Product_GetbyHashTagId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Product_GetbyUserAndTag" FunctionName="PencilBoxModel.Store.pb_Product_GetbyUserAndTag">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_ProductTag_GetbyUserAndTag" FunctionName="PencilBoxModel.Store.pb_ProductTag_GetbyUserAndTag">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="pb_Order">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Order">
+              <MappingFragment StoreEntitySet="pb_Order">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pb_Reference">
+            <EntityTypeMapping TypeName="PencilBoxModel.pb_Reference">
+              <MappingFragment StoreEntitySet="pb_Reference">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pb_Reference_Create" FunctionName="PencilBoxModel.Store.pb_Reference_Create" />
+          <FunctionImportMapping FunctionImportName="pb_Reference_Delete" FunctionName="PencilBoxModel.Store.pb_Reference_Delete" />
+          <FunctionImportMapping FunctionImportName="pb_Reference_GetByName" FunctionName="PencilBoxModel.Store.pb_Reference_GetByName">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pb_Reference_Update" FunctionName="PencilBoxModel.Store.pb_Reference_Update" />
+          <FunctionImportMapping FunctionImportName="pb_Product_UpdateStatus" FunctionName="PencilBoxModel.Store.pb_Product_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="pb_Product_UpdateHumanCode" FunctionName="PencilBoxModel.Store.pb_Product_UpdateHumanCode" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_UpdateStatus" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageH1" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageH1" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageH2" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageH2" />
+          <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageW1" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageW1" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

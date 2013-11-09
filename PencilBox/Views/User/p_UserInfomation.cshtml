@@ -1,0 +1,20 @@
+﻿@model PbData.Entities.pb_UserProfile
+
+@{
+    Layout = null;
+}
+
+<table>
+    <tr>
+        <td class="left-element">Full Name</td>
+        <td><b>@Model.FullName</b></td>
+    </tr>
+    <tr>
+        <td class="left-element">Email</td>
+        <td><b>@Model.UserName</b></td>
+    </tr>
+    <tr>
+        <td class="left-element">Birthday</td>
+        <td><b>@Model.DateOfBirth.GetValueOrDefault().ToShortDateString()</b></td>
+    </tr>
+</table>

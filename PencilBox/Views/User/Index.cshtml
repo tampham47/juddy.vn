@@ -1,0 +1,58 @@
+﻿@model PbData.Entities.pb_UserProfile
+
+@{
+    ViewBag.Title = "Your information";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div>
+    <div>
+        <div style="float:right; display:inline-block">
+            <a href="~/User/Edit" >
+                <img src="~/Content/images/base-edit-light.png" width="30"
+                    onmouseover="this.src='/Content/images/base-edit-dark.png'"
+                    onmouseout="this.src='/Content/images/base-edit-light.png'" /></a>
+        </div>
+
+        <hgroup class="title">
+            <h2>@ViewBag.Title.</h2>
+        </hgroup>
+    </div>
+
+    @Html.Action("p_UserInfomation", "User", new { userId = Model.UserId })
+</div>
+
+
+<div class="border-top">
+    <div>
+        <div style="float:right; display:inline-block">
+            <a href="~/Contact/Add" >
+                <img src="~/Content/images/base-add-light.png" width="30"
+                    onmouseover="this.src='/Content/images/base-add-dark.png'"
+                    onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
+        </div>
+
+        <hgroup class="title">
+            <h2>Contacts.</h2>
+        </hgroup>
+    </div>
+
+    @Html.Action("p_UserContact", "Contact", new { userId = Model.UserId })
+</div>
+
+<div class="border-top">
+    <div>
+        <div style="float:right; display:inline-block">
+            <a href="~/Location/New" >
+                <img src="~/Content/images/base-add-light.png" width="30"
+                    onmouseover="this.src='/Content/images/base-add-dark.png'"
+                    onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
+        </div>
+
+        <hgroup class="title">
+            <h2>Locations.</h2>
+        </hgroup>
+    </div>
+
+    @Html.Action("p_UserLocation", "Location", new { userId = Model.UserId })
+</div>

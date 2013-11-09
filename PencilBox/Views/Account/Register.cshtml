@@ -1,0 +1,94 @@
+﻿@model PencilBox.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    
+    <table>
+         <tr>
+            <td class="label">@Html.LabelFor(m => m.Email)</td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                <div>
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.Password)</td>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+                <div>
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.ConfirmPassword)</td>
+            <td>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                <div>
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.FirstName)</td>
+            <td>
+                @Html.TextBoxFor(m => m.FirstName)
+                <div>
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.LastName)</td>
+            <td>
+                @Html.TextBoxFor(m => m.LastName)
+                <div>
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"></td>
+            <td>
+                <input type="submit" value="Register" class="modern-button theme-a width120" />
+            </td>
+        </tr>
+    </table>
+    
+    @*<fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>*@
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

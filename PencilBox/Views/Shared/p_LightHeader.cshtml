@@ -1,0 +1,25 @@
+﻿@{Layout = null;}
+
+<header>
+    <div class="content-wrapper relative">
+        <table style="margin-top:1px">
+            <tr>
+                @*<td style="width:29px; padding-left:0px; padding-right:0px">
+                    </td>*@
+                <td style="width:55px; padding-left:0px; padding-right:0px;">
+                    <div style="height:30px; width:75px; background-color:#ea1943; color:white; font-weight:bold;">
+                        <img src="~/Content/images/allapp-a.png" width="30"/>
+                        <a href="~/" style="color:white; text-decoration: none; line-height:30px; vertical-align:top; margin-left:-4px">pbox</a></div></td>
+
+                <td style="padding-left:0px">
+                    @using (Html.BeginForm("Filter","Product"))
+                    {
+                        <input type="text" name="request" value="@ViewBag.FilterRequest"
+                            style="width:190px; height:20px; outline:none; padding:4px; background-color:#727268; border-color:#68685e; color:white"
+                            placeholder="Filter by tags" />
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>

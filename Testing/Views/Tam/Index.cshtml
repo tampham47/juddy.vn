@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PbData.Entities.pb_Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            UserName
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HumanCode)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div style="max-height:200px; max-width:200px; overflow:hidden">
+                <img src="http://localhost:2064/PencilBox_Data/Images/@item.CoverImage.ImagePath" width="200" />
+            </div>
+        </td>
+        <td>
+            @Html.ActionLink(item.Name, "ProductDetails", new { productId = item.ProductId })
+        </td>
+        <td>
+            <span>@item.pb_UserProfile.FullName</span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HumanCode)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@model PbData.Entities.pb_HashTag
+@{ Layout = null; }
+
+
+<table class="grid">
+    <tr>
+        <td style="width:60px;">
+            <img src="~/PencilBox_Data/TagIcons/@Model.Icon" width="60" style="padding:0px; margin:0px; margin-bottom:-4px" /></td>
+        <td style="padding-left:8px">
+            <hgroup class="title">
+                <h1>@Model.TagName.</h1>
+            </hgroup>
+        </td>
+        
+        <td style="width:100px;">
+            @if(Model.Type == PbData.Business.EHashtag_Type.Public)
+            {
+                <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>
+            } else
+            {
+                if(ps_Membership.IsCurrentUser(Model.UserId))
+                {
+                    <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>
+                }
+            }
+        </td>
+        
+        <td style="width:100px; text-align:right">
+            <div class="fb-like" 
+                data-href="http://pbox.azurewebsites.net/@Model.TagName" 
+                data-width="100" data-layout="button_count" 
+                data-show-faces="false" data-send="false">
+            </div>
+        </td>
+        
+    </tr>
+</table>
+
+@*<div class="header-tag">
+    <section class="content-wrapper clear-fix">
+        <hgroup class="title">
+            <h1>qdfashion.</h1>
+            <h2>@ViewBag.Message</h2>
+        </hgroup>
+        <table style="display:none">
+            <tr>
+                <td style="width:60px; padding-left:0px">
+                    <img src="~/Content/images/default-company.jpg" width="60" style="padding:0px; margin:0px; margin-bottom:-4px" /></td>
+                <td >
+                    <hgroup class="title">
+                        <h1>qdfashion.</h1>
+                    </hgroup>
+                    <h1 style="padding:0px; color:#2d2d29">qdfashion</h1>
+                    <i style="font-size:12px">by TuCuong</i>
+                </td>
+                <td style="width:100px;">
+                    <a href="#" class="LightMetroButton">150 người theo dõi</a>
+                    <a href="#" class="LightMetroButton">+Follow</a>
+                    <a href="#" class="LightMetroButton">About</a>
+                </td>
+            </tr>
+        </table>
+    </section>
+</div>*@

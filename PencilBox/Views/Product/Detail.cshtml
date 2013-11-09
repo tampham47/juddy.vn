@@ -1,0 +1,154 @@
+﻿@model PbData.Entities.pb_Product
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+@section featured 
+{
+    <div class="image-slider" style="padding-left: 5px; padding-right: 5px">
+        <div class="content" style="height: 400px; width: 100%;">
+            @foreach (var item in Model.pb_Photo.OrderBy(m => m.Status).ToList())
+            {
+                <img src="~/PencilBox_Data/Images/@item.ImageFixH1()" height="400"
+                    class="product-image"/>
+            }
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <table class="grid" style="margin:4px 0px">
+            <tr>
+                <td style="font-size:16px; color: white">
+                    <b>@Model.Name</b>
+                    <span>(@Model.HumanCode)</span>
+                </td>
+
+                <td style="width: 70px; text-align: right; padding-right:10px">
+                    <h3 style="color: white">@Model.HumanPrice()</h3></td>
+
+                @if(ps_Membership.IsCurrentUser(Model.UserId))
+                {
+                    <td style="width: 120px;">
+                        <a class="modern-button theme-a"
+                            href="https://www.facebook.com/sharer/sharer.php?u=@ps_ServerHelper.Domain/Product/Detail?productId=@Model.ProductId" 
+                            target="_blank">Share</a>
+                    </td>
+
+                    <td style="width: 80px; padding-left:4px">
+                        @Html.ActionLink("Edit", "Edit", "Product", 
+                            new { productId = @Model.ProductId }, 
+                            new { @class = "modern-button theme-b" })
+                    </td>
+                } else
+                {
+                    <td style="width: 120px;">
+                        @Html.ActionLink("Buy", "New", "Order", 
+                            new { productId = @Model.ProductId }, 
+                            new { @class = "modern-button theme-a" })
+                    </td>
+
+                    <td style="width: 80px; padding-left:4px">
+                        @if (ps_Membership.IsAuthenticated() &&
+                            Model.IsTag(ps_Membership.GetUser().UserId, 
+                            PbData.Business.ESpecialTag.Favourite))
+                        {
+                            <div style="height:35px; text-align:center" class="theme-b">
+                                <a href="#" style="line-height:35px;">
+                                    <img src="~/Content/images/tool-Shape-Heart.png" width="35" />
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            
+                            <div style="height:35px; text-align:center" class="theme-b">
+                                <a href="@Url.Action("Favourite", "Product", new { productId = @Model.ProductId })" style="line-height:35px;" >
+                                    <img src="~/Content/images/tool-Heart.png" width="35" />
+                                </a>
+                            </div>
+                        }
+                    </td>
+                }
+            </tr>
+        </table>
+    </div>
+}
+
+<div >
+    <div style="display:table; width:100%">
+        <div class="sub-main">
+            @*<img src="~/PencilBox_Data/Avatars/275867_100000444698747_1555330678_q.jpg" />
+            <b style="vertical-align:top">Tư Cuồng</b>*@
+            <hgroup class="title">
+                <h3>Details.</h3></hgroup>
+
+            <p style="color: #282828">@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</p>
+        </div>
+        <div class="sub-right">
+            <hgroup class="title">
+                <h3>Tags.</h3></hgroup>
+            @Html.Action("p_ProductTags", "Tag", new { productId = Model.ProductId })
+        </div>
+    </div>
+
+    <div class="border-top" style="display:table; width:100%">
+        <div class="sub-main">
+            <hgroup class="title">
+                <h3>Locations.</h3></hgroup>
+            @Html.Action("p_UserLocation", "Location", new { userId = Model.UserId })
+        </div>
+
+        <div class="sub-right">
+            <hgroup class="title">
+                <h3>Contacts.</h3></hgroup>
+            @Html.Action("p_UserContact", "Contact", new { userId = Model.UserId })
+        </div>
+    </div>
+
+    <div class="border-top" style="display:table; width:100%">
+        <div class="sub-main">
+            <hgroup class="title">
+                <h3>Comments.</h3></hgroup>
+
+            <div class="fb-comments" 
+                data-href="@ps_ServerHelper.Domain/Product/Detail?productId=@Model.ProductId" 
+                data-width="630" 
+                data-num-posts="10"></div>
+        </div>
+
+        <div class="sub-right">
+            <hgroup class="title">
+                <h3>...</h3></hgroup>
+        </div>
+    </div>
+</div>
+
+
+
+@section headercontent
+{
+    <link href="~/Content/custom-scrollbar/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="~/Content/custom-scrollbar/js/minified/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        (function ($) {
+            $(window).load(function () {
+
+                $(".content").mCustomScrollbar({
+                    scrollInertia: 550,
+                    horizontalScroll: true,
+                    mouseWheelPixels: 116,
+                    autoHideScrollbar: true
+                });
+
+            });
+
+        })(jQuery);
+
+    </script>
+}

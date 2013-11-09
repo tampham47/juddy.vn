@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PbData.Entities.pb_Order>
+
+@{
+    ViewBag.Title = "Quản lý hóa đơn";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<div id="panel_OrderSearch" class="border-bottom" 
+    style="padding-bottom:4px; margin-bottom:6px">
+
+    <table class="grid">
+        <tr>
+            <td>Lọc từ thời điểm</td>
+            <td>Tìm kiếm theo</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="width:140px">
+                <select class="dropDown" style="width:140px; margin-top:-1px">
+                    <option value="1">Hôm nay</option>
+                    <option value="2">Từ hôm qua</option>
+                    <option value="3">Trong tuần này</option>
+                    <option value="3">Trong tháng này</option>
+                </select>
+            </td>
+            <td style="width:140px">
+                <select class="dropDown" style="width:140px; margin-top:-1px">
+                    <option value="1">Mã người dùng</option>
+                    <option value="2">Mã sản phẩm</option>
+                    <option value="3">Mã hóa đơn</option>
+                </select>
+            </td>
+            <td>
+                @using (Html.BeginForm("Filter", "Product", FormMethod.Get, new { style="display:inline" }))
+                {
+                    <input type="text" name="request" value="@ViewBag.FilterRequest"
+                        style="width:96%; height:20px; outline:none; padding:4px; border-color:#dadad6; color:black"
+                        placeholder="tìm kiếm" />
+                }
+            </td>
+            <td style="width:120px">
+                <a href="#" class="theme-a" 
+                    style="display:inline-block; width:120px; height:30px; line-height:30px; text-align:center">Search</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("p_OrderView", item)
+}

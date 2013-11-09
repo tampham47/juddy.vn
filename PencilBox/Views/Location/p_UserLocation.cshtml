@@ -1,0 +1,110 @@
+﻿@model IEnumerable<PbData.Entities.pb_Location>
+
+@{Layout = null;}
+
+<div>
+    <div class="Element">
+        <div class="ImportantElement"></div>
+        <div id="map_canvas" style="width:100%; height:300px"></div>
+    </div>
+
+    <table class="grid" style="margin-top:4px">
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td style="width:20px; padding-left:0px; text-align:center">
+            <img src="~/Content/images/map-32.png" width="20"/>
+        </td>
+    
+        <td>
+            <span style="color:#2d2d29">@item.Address</span>
+        </td>
+
+        @if (ps_Membership.IsAuthenticated() &&
+            item.UserId == ps_Membership.GetUser().UserId)
+        {
+        <td style="width:30px; padding-right:0px">
+            <a href="~/Location/Delete?locationId=@item.LocationId" >
+                <img src="~/Content/images/none-delete-light.png" width="30"
+                    onmouseover="this.src='/Content/images/none-delete-red.png'"
+                    onmouseout="this.src='/Content/images/none-delete-light.png'" /></a>
+        </td>
+        }
+
+    </tr>
+    }
+    </table>
+</div>
+
+@*pull data to pos*@
+<script>
+    var pos = [];
+</script>
+
+@foreach (var item in Model)
+{
+    <script type="text/javascript">
+        pos.push(['@item.Latitude', '@item.Longitude', '@item.Address']);
+    </script>
+}
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="../../Scripts/pb_MapExtend.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var addMarker = function (lat, lon, content) {
+        var myLocation = new google.maps.LatLng(lat, lon);
+
+        //bonus
+        var marker = new google.maps.Marker({
+            position: myLocation,
+            draggable: false,
+            animation: google.maps.Animation.DROP,
+            title: "Select your place"
+        });
+        marker.setMap(map);
+
+        google.maps.event.addListener(marker, 'click', function () {
+            var infowindow = new google.maps.InfoWindow({
+                content: content
+            });
+            infowindow.open(map, marker);
+        });
+    }
+
+    $(document).ready(function () {
+
+        myOptions = {
+            zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+        // Try HTML5 geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                var centerLocation = new google.maps.LatLng(pos[0][0], pos[0][1]);
+                map.setCenter(centerLocation);
+                for (var i = 0; i < pos.length; i++) {
+                    addMarker(pos[i][0], pos[i][1], pos[i][2]);
+                }
+
+            }, function () {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+
+        // Create the DIV to hold the control and call the HomeControl() constructor
+        // passing in this DIV.
+        var homeControlDiv = document.createElement('DIV');
+        var homeControl = new HomeControl(homeControlDiv, map);
+
+        homeControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(homeControlDiv);
+    });
+</script>

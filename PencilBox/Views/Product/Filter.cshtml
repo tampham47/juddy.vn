@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PbData.Entities.pb_Product>
+
+@{
+    ViewBag.Title = "Filter";
+}
+
+<table class="grid">
+    <tr>
+        <td style="width:60px;">
+            <img src="~/PencilBox_Data/TagIcons/Default-Tag-C.png" 
+                width="60" style="padding:0px; margin:0px; margin-bottom:-4px" /></td>
+        <td style="padding-left:8px">
+            <hgroup class="title">
+                <h1>@ViewBag.FilterRequest.</h1>
+            </hgroup>
+        </td>
+        <td style="width:100px;">
+        </td>
+    </tr>
+</table>
+
+@Html.Partial("p_ProductListView", Model)
+
+@section headercontent
+{
+    @*<link href="~/Content/wookmark/reset.css" rel="stylesheet" />*@
+    <link href="~/Content/wookmark/style.css" rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="~/Content/wookmark/jquery.wookmark.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(new function () {
+            // Prepare layout options.
+            var options = {
+                autoResize: true, // This will auto-update the layout when the browser window is resized.
+                container: $('#main'), // Optional, used for some extra CSS styling
+                offset: 10, // Optional, the distance between grid items
+                itemWidth: 232 // Optional, the width of a grid item
+            };
+
+            var handler = $('#tiles li');
+
+            // Call the layout function.
+            handler.wookmark(options);
+        })
+    </script>
+}

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<PbData.Entities.pb_Product>
+
+@{
+    ViewBag.Title = "Favourite";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("~/Views/Product/p_ProductView.cshtml", item)
+}

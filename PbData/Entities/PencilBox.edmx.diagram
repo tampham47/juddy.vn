@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0690598bda44f6d9adf96541473920e" Name="Diagram" ZoomLevel="97">
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Comment" Width="1.5" PointX="0.875" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_ContactType" Width="1.5" PointX="0.875" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_HashTag" Width="1.5" PointX="5" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Location" Width="1.5" PointX="5" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Photo" Width="1.5" PointX="5" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_ProductTag" Width="1.5" PointX="0.875" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_UserContact" Width="1.5" PointX="2.875" PointY="5.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_UserProfile" Width="1.5" PointX="5" PointY="2.25" IsExpanded="false" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Comment_pb_UserProfile" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_UserContact_pb_ContactType" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_HashTag_pb_UserProfile" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_ProductTag_pb_HashTag" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Location_pb_UserProfile" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Photo_pb_UserProfile" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_ProductTag_pb_UserProfile" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_UserContact_pb_UserProfile" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Product" Width="1.5" PointX="0.875" PointY="2.375" IsExpanded="false" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Comment_pb_Product" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Photo_pb_Product" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_ProductTag_pb_Product" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Order" Width="1.5" PointX="5" PointY="3.5" IsExpanded="false" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Order_pb_Product" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Order_pb_UserProfile" />
+        <EntityTypeShape EntityType="PencilBoxModel.pb_Reference" Width="1.5" PointX="0.10691614826531902" PointY="29.119266627877611" />
+        <AssociationConnector Association="PencilBoxModel.FK_pb_Product_pb_UserProfile" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

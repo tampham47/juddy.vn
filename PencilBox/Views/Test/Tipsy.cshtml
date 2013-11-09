@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Tipsy";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<a class="tooltip pointer" title="This is my image's tooltip message!">Show tool tip</a>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.tooltip').tooltipster({
+            theme: 'tooltipster-punk',
+            animation: 'fade',
+            speed: 250,
+            delay: 0
+        });
+    })
+</script>
+
+@section headercontent
+{
+    @*<link href="~/Content/tooltipster-master/css/reset.css" rel="stylesheet" />*@
+    @*<link href="~/Content/tooltipster-master/css/style.css" rel="stylesheet" />*@
+    <link href="~/Content/tooltipster-master/css/tooltipster.css" rel="stylesheet" />
+    <link href="~/Content/tooltipster-master/css/themes/tooltipster-punk.css" rel="stylesheet" />
+
+    <script src="~/Content/tooltipster-master/js/jquery.tooltipster.min.js"></script>
+}

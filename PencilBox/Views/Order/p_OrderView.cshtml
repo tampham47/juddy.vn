@@ -1,0 +1,46 @@
+﻿@model PbData.Entities.pb_Order
+
+@{Layout = null;}
+
+<div style="display:table; width:100%" class="border-bottom">
+    <div style="display:inline-block; width:200px; height:200px; overflow:hidden">
+        <a href="@Url.Action("Detail", "Product", new { productId = Model.ProductId })">
+            <img src="~/PencilBox_Data/Images/@Model.pb_Product.CoverImage.ImageFixW1()" width="200" />
+        </a>
+    </div>
+
+    <div style="display:inline-block; vertical-align:top; margin-left:10px">
+        <div>@Model.CustomerName</div>
+        <div>@Model.CustomerPhone</div>
+        <div>@Model.Address</div>
+        <div>@Model.Comment</div> <br />
+
+        <b style="font-size:18px">
+            @Html.ActionLink(
+                @Model.pb_Product.Name, 
+                "Detail", "Product",
+                new { productId = @Model.pb_Product.ProductId }, null)
+        </b><br />
+
+        <table class="grid">
+            <tr>
+                <td style="width:80px" class="align-right"><span>Giá : </span></td>
+                <td><b>@Model.Price</b></td>
+            </tr>
+            <tr>
+                <td class="align-right"><span>Số lượng : </span></td>
+                <td><b>@Model.Amount</b></td>
+            </tr>
+            <tr>
+                <td class="align-right"><span>Amount : </span></td>
+                <td><b>@Model.TotalPrice()</b></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div style="float:right;" class="width120">
+        <a href="#" class="modern-button theme-b">On delivery</a>
+    </div>
+</div>
+

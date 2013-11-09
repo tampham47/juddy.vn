@@ -1,0 +1,23 @@
+﻿@model PencilBox.Models.ps_UserContact
+
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div>
+    <div style="float:right; display:inline-block">
+        <a href="~/Contact/Add" >
+            <img src="~/Content/images/base-add-light.png" width="30" style="margin-top:7px"
+                onmouseover="this.src='/Content/images/base-add-dark.png'"
+                onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
+    </div>
+
+    <hgroup class="title">
+        <h1>@ViewBag.Title.</h1>
+        <h2>@ViewBag.Message</h2>
+    </hgroup>
+</div>
+
+@Html.Partial("p_UserContact", Model)
+

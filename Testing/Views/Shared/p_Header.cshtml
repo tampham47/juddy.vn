@@ -1,0 +1,77 @@
+﻿@{Layout = null;}
+
+<header>
+    <div class="content-wrapper relative">
+        <table style="margin-top:1px">
+            <tr>
+                @*<td style="width:29px; padding-left:0px; padding-right:0px">
+                    </td>*@
+                <td id="logo" style="width:125px; padding-left:0px; padding-right:0px;">
+                    <div style="height:30px; background-color:#ea1943; color:white; font-weight:bold;">
+                        <img id="pbox-logo" src="~/Content/images/allapp-a.png" width="30"/>
+                        <a href="~/" style="color:white; text-decoration: none; line-height:30px; vertical-align:top; margin-left:-4px">pbox testing</a></div></td>
+
+                <td></td>
+                @*<td style="padding-left:0px">
+                    @using (Html.BeginForm("Filter","Product"))
+                    {
+                        <input type="text" name="request" value="@ViewBag.FilterRequest"
+                            style="width:190px; height:20px; outline:none; padding:4px; background-color:#727268; border-color:#68685e; color:white"
+                            placeholder="Filter by tags" />
+                    }
+                </td>
+                <td></td>
+                <td style="width:330px"></td>
+                <td style="padding-right:0px; width:40px">
+                    <div style="height:30px; width:70px; color:white; text-align:center">
+                        <a href="@Url.Action("Add", "Tag")" style="color:white; text-decoration: none; line-height:30px;">
+                            +Tag
+                        </a></div>
+                </td>
+                <td style="text-align: right; color:white; padding-right:0px; max-width:120px">
+                    @Html.Partial("_LoginPartial")
+                </td>
+                @if(Request.IsAuthenticated)
+                {
+                    <td style="width:20px; padding-left:0px; padding-right:0px;">
+                        <div style="height:30px; width:30px; background-color:#ea1943; color:white; font-weight:bold; text-align:center">
+                            <a href="#" style="color:white; text-decoration: none; line-height:30px;">
+                                <img src="~/Content/images/shopping-cart.png" width="30" />
+                            </a></div></td>
+                }*@
+            </tr>
+        </table>
+    </div>
+</header>
+
+<div class="main-menu-panel">
+    <div class="main-menu-inner">
+        <div style="width: 960px; margin: 0 auto; position: relative;">
+            <div class="pointer">&nbsp;</div>
+            <ul class="submenu">
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+            </ul>
+            <ul class="submenu">
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+            </ul>
+            <ul class="submenu">
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+            </ul>
+            <ul class="submenu">
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+                <li><a href="#" class="modern-button theme-b">Menu Item</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
