@@ -11,7 +11,7 @@
                 <h1>@Model.TagName.</h1>
             </hgroup>
         </td>
-        
+
         <td style="width:100px;">
             @if(Model.Type == PbData.Business.EHashtag_Type.Public)
             {
@@ -24,15 +24,15 @@
                 }
             }
         </td>
-        
+
         <td style="width:100px; text-align:right">
-            <div class="fb-like" 
-                data-href="http://pbox.azurewebsites.net/@Model.TagName" 
-                data-width="100" data-layout="button_count" 
+            <div class="fb-like"
+                data-href="@ps_ServerHelper.Domain/@Model.TagName"
+                data-width="100" data-layout="button_count"
                 data-show-faces="false" data-send="false">
             </div>
         </td>
-        
+
     </tr>
 </table>
 
