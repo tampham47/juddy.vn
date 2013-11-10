@@ -1,12 +1,18 @@
 /PencilBox/PencilBox_Data
 /PencilBox/bin
 /PencilBox/obj
+/PencilBox/*.config
 
 /PbData/bin
 /PbData/obj
+/PbData/*.config
 
 /Editing/bin
 /Editing/obj
+/Editing/*.config
 
 /Testing/bin
 /Testing/obj
+/Testing/*.config
+
+

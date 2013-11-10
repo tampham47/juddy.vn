@@ -953,6 +953,8 @@
     <Content Include="Views\Product\p_ProductListView.cshtml" />
     <Content Include="Views\Shared\_LightLayout.cshtml" />
     <Content Include="Views\Shared\p_LightHeader.cshtml" />
+    <Content Include="Views\Tag\_EditView.cshtml" />
+    <Content Include="Views\Tag\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PencilBox_Data\Images\" />

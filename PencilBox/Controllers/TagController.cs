@@ -94,17 +94,37 @@ namespace PencilBox.Controllers
         {
             bn_HashTag bn_hashTag = new bn_HashTag();
             var model = bn_hashTag.GetByTagName(tagName);
+
             if (model != null)
-                return View();
+                return View(model);
             else
-                return View();
+                return View(model);
         }
 
         [HttpPost]
         public ActionResult Edit(pb_HashTag model)
         {
+            bn_HashTag bnHashTag = new bn_HashTag();
 
-            return RedirectToAction("Index");
+            string iconPath = (string)Session["IconPath"];
+            if (iconPath == "" || iconPath == null)
+                iconPath = model.Description;
+
+            if (ModelState.IsValid)
+            {
+                bnHashTag.Update(
+                    model.HashTagId,
+                    model.Type,
+                    iconPath,
+                    model.Description);
+
+                //clear iconpath;
+                Session["IconPath"] = null;
+
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
     }
 }
