@@ -106,6 +106,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="DateUpdated" Type="datetime" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Views" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="pb_Location">
           <Key>
@@ -164,6 +165,7 @@
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="DateUpdated" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Views" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="pb_ProductTag">
           <Key>
@@ -406,6 +408,9 @@
         <Function Name="pb_HashTag_GetbyTagName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tagName" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="pb_HashTag_IncrViews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="pb_HashTag_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="type" Type="tinyint" Mode="In" />
@@ -514,6 +519,9 @@
         </Function>
         <Function Name="pb_Product_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_IncrViews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="uniqueidentifier" Mode="In" />
         </Function>
         <Function Name="pb_Product_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
@@ -916,6 +924,12 @@
             <Parameter Name="photoId" Mode="In" Type="Guid" />
             <Parameter Name="imageW1" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="pb_HashTag_IncrViews" ReturnType="Collection(Int32)">
+          <Parameter Name="id" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_IncrViews" ReturnType="Collection(Int32)">
+          <Parameter Name="id" Mode="In" Type="Guid" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pb_Location_GetbyId_Result">
           <Property Type="Guid" Name="LocationId" Nullable="false" />
@@ -1032,6 +1046,7 @@
           <NavigationProperty Name="pb_ProductTag" Relationship="PencilBoxModel.FK_pb_ProductTag_pb_HashTag" FromRole="pb_HashTag" ToRole="pb_ProductTag" />
           <Property Type="String" Name="TextName" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
+          <Property Type="Int64" Name="Views" Nullable="false" />
         </EntityType>
         <EntityType Name="pb_Location">
           <Key>
@@ -1235,6 +1250,7 @@
           <Property Type="String" Name="HumanCode" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Type="Int32" Name="Status" Nullable="false" />
           <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Product_pb_UserProfile" FromRole="pb_Product" ToRole="pb_UserProfile" />
+          <Property Type="Int64" Name="Views" Nullable="false" />
         </EntityType>
         <Association Name="FK_pb_Comment_pb_Product">
           <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="1" />
@@ -1490,6 +1506,7 @@
           <EntitySetMapping Name="pb_HashTag">
             <EntityTypeMapping TypeName="PencilBoxModel.pb_HashTag">
               <MappingFragment StoreEntitySet="pb_HashTag">
+                <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
                 <ScalarProperty Name="TextName" ColumnName="TextName" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
@@ -1575,6 +1592,7 @@
           <EntitySetMapping Name="pb_Product">
             <EntityTypeMapping TypeName="PencilBoxModel.pb_Product">
               <MappingFragment StoreEntitySet="pb_Product">
+                <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="HumanCode" ColumnName="HumanCode" />
                 <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
@@ -1645,6 +1663,8 @@
           <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageH1" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageH1" />
           <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageH2" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageH2" />
           <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageW1" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageW1" />
+          <FunctionImportMapping FunctionImportName="pb_HashTag_IncrViews" FunctionName="PencilBoxModel.Store.pb_HashTag_IncrViews" />
+          <FunctionImportMapping FunctionImportName="pb_Product_IncrViews" FunctionName="PencilBoxModel.Store.pb_Product_IncrViews" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

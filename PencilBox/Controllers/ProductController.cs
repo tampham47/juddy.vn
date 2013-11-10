@@ -183,6 +183,7 @@ namespace PencilBox.Controllers
         {
             bn_Product bnProduct = new bn_Product();
             var model = bnProduct.GetById(productId);
+            bnProduct.IncrViews(model.ProductId);
 
             return View(model);
         }

@@ -20,8 +20,9 @@
         <table class="grid" style="margin:4px 0px">
             <tr>
                 <td style="font-size:16px; color: white">
+                    <span class="glyphicon glyphicon-eye-open"></span>
                     <b>@Model.Name</b>
-                    <span>(@Model.HumanCode)</span>
+                    <span>(ID: @Model.HumanCode)</span>
                 </td>
 
                 <td style="width: 70px; text-align: right; padding-right:10px">
@@ -81,7 +82,7 @@
             @*<img src="~/PencilBox_Data/Avatars/275867_100000444698747_1555330678_q.jpg" />
             <b style="vertical-align:top">Tư Cuồng</b>*@
             <hgroup class="title">
-                <h3>Details.</h3></hgroup>
+                <h3>Details (@Model.Views views).</h3></hgroup>
 
             <p style="color: #282828">@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</p>
         </div>

@@ -18,6 +18,7 @@ namespace PencilBox.Controllers
         {
             bn_HashTag bnHashTag = new bn_HashTag();
             var model = bnHashTag.GetByTagName(tagName);
+            bnHashTag.IncrViews(model.HashTagId);
 
             return View(model);
         }
@@ -95,6 +96,9 @@ namespace PencilBox.Controllers
             bn_HashTag bn_hashTag = new bn_HashTag();
             var model = bn_hashTag.GetByTagName(tagName);
 
+            //clear iconpath;
+            Session["IconPath"] = null;
+
             if (model != null)
                 return View(model);
             else
@@ -108,7 +112,7 @@ namespace PencilBox.Controllers
 
             string iconPath = (string)Session["IconPath"];
             if (iconPath == "" || iconPath == null)
-                iconPath = model.Description;
+                iconPath = model.IconPath;
 
             if (ModelState.IsValid)
             {

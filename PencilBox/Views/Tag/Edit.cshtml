@@ -14,7 +14,7 @@
         <tr>
             <td style="text-align:right">HashTag</td>
             <td>
-                @Html.LabelFor(m => m.TagName)
+                <label>@Model.TagName</label>
             </td>
         </tr>
         <tr>
@@ -37,6 +37,13 @@
         </tr>
 
         <tr>
+            <td style="text-align:right">Default HashTags</td>
+            <td>
+                <textarea></textarea>
+            </td>
+        </tr>
+
+        <tr>
             <td style="text-align:right"></td>
             <td>
                 @Html.HiddenFor(m => m.HashTagId)
@@ -44,8 +51,8 @@
                 @Html.HiddenFor(m => m.IconPath)
                 <input type="submit" value="Publish" class="modern-button theme-a width120" />
 
-                <a href="@Url.Action("Index", "Tag")" 
-                    class="modern-button theme-b" 
+                <a href="@Url.Action("Index", "Tag")"
+                    class="modern-button theme-b"
                     style="display:inline-block; width:120px;">Cancel</a>
             </td>
         </tr>

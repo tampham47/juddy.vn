@@ -120,6 +120,10 @@ namespace PbData.Business
             else
                 return false;
         }
+        public int IncrViews(Guid id)
+        {
+            return (int)db.pb_HashTag_IncrViews(id).Single();
+        }
 
         public pb_HashTag GetByTagName(string tagName)
         {
@@ -134,7 +138,10 @@ namespace PbData.Business
             var hashTags = db.pb_HashTag_GetbyTagName(tagName.ToLower()).ToList();
 
             if (hashTags.Count > 0)
-                return hashTags.First();
+            {
+                var tag = hashTags.First();
+                return tag;
+            }
             else
                 return null;
         }

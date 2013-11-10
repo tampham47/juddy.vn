@@ -28,6 +28,7 @@ namespace PbData.Entities
         public System.DateTime DateCreated { get; set; }
         public string TextName { get; set; }
         public System.DateTime DateUpdated { get; set; }
+        public long Views { get; set; }
     
         public virtual pb_UserProfile pb_UserProfile { get; set; }
         public virtual ICollection<pb_ProductTag> pb_ProductTag { get; set; }

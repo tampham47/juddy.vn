@@ -84,6 +84,10 @@ namespace PbData.Business
 
             return re;
         }
+        public int IncrViews(Guid id)
+        {
+            return (int)db.pb_Product_IncrViews(id).Single();
+        }
 
         //make product is unavailable
         public static int Unavaiable(Guid productId)

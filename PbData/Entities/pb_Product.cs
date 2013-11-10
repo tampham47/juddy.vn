@@ -32,6 +32,7 @@ namespace PbData.Entities
         public System.DateTime DateUpdated { get; set; }
         public string HumanCode { get; set; }
         public int Status { get; set; }
+        public long Views { get; set; }
     
         public virtual ICollection<pb_Comment> pb_Comment { get; set; }
         public virtual ICollection<pb_Photo> pb_Photo { get; set; }

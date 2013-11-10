@@ -1024,5 +1024,23 @@ namespace PbData.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_Photo_UpdateImageW1", photoIdParameter, imageW1Parameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> pb_HashTag_IncrViews(Nullable<System.Guid> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_IncrViews", idParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pb_Product_IncrViews(Nullable<System.Guid> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_Product_IncrViews", idParameter);
+        }
     }
 }
