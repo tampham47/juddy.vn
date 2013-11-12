@@ -6,14 +6,15 @@
     <link href="~/Content/images/allapp-icon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
 
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/themes/base/css")
     
     <link href="~/Content/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="~/Content/kendoui/styles/kendo.metro.min.css" rel="stylesheet" />
     
-    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     @RenderSection("headercontent", required: false)
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")*@
 </head>
@@ -36,6 +37,8 @@
 
     <script src="~/Content/kendoui/js/jquery.min.js"></script>
     <script src="~/Content/kendoui/js/kendo.web.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+
     @RenderSection("scripts", required: false)
 
     <div id="fb-root"></div>
