@@ -20,13 +20,13 @@
         <table class="grid" style="margin:4px 0px">
             <tr>
                 <td style="font-size:16px; color: white">
-                    <span class="glyphicon glyphicon-eye-open"></span>
-                    <b>@Model.Name</b>
-                    <span>(ID: @Model.HumanCode)</span>
+                    @*<span class="glyphicon glyphicon-eye-open"></span>*@
+                    <span>@Model.Name</span>
+                    <span>(mã sản phẩm: @Model.HumanCode)</span>
                 </td>
 
-                <td style="width: 70px; text-align: right; padding-right:10px; font-size:16px;">
-                    <span style="color: white; font-weight:bold">@Model.HumanPrice()</span></td>
+                <td style="width: 120px; text-align: right; padding-right:10px; font-size:16px; color: white; ">
+                    <b style="font-weight:bold">@Model.HumanPrice()</b> vnđ</td>
 
                 @if(ps_Membership.IsCurrentUser(Model.UserId))
                 {

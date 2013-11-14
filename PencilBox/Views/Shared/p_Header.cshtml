@@ -15,7 +15,7 @@
                     @using (Html.BeginForm("Filter","Product"))
                     {
                         <input type="text" name="request" value="@ViewBag.FilterRequest"
-                            style="width:190px; height:30px; outline:none; padding:4px; background-color:#727268; border-color:#68685e; color:white"
+                            style="font-size:14px; width:190px; height:30px; outline:none; padding:4px; background-color:#727268; border-color:#68685e; color:white"
                             placeholder="#tags" />
                     }
                 </td>
@@ -25,7 +25,8 @@
                     <div style="height:30px; width:70px; color:white; text-align:center">
                         <a href="@Url.Action("Add", "Tag")" style="color:white; text-decoration: none; line-height:30px;">
                             +Tag
-                        </a></div>
+                        </a>
+                    </div>
                 </td>
                 <td style="text-align: right; color:white; padding-right:0px; max-width:120px">
                     @Html.Partial("_LoginPartial")
