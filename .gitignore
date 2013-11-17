@@ -15,4 +15,5 @@
 /Testing/obj
 /Testing/*.config
 
-
+/Juddy.Admin/bin
+/Juddy.Admin/obj
