@@ -13,7 +13,7 @@
         </td>
 
         <td style="width:100px;">
-            <a href="~/Product/Add?tag=@Model.TagName" class="btn btn-default pull-right">+Add</a>
+            <a href="~/Product/Add?tag=@Model.TagName" class="btn btn-link pull-right">+thêm sản phẩm</a>
             @*@if(Model.Type == PbData.Business.EHashtag_Type.Public)
             {
                 <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>
@@ -26,13 +26,13 @@
             }*@
         </td>
 
-        @*<td style="width:100px; text-align:right; padding-top:6px">
+        <td style="width:100px; text-align:right; padding-top:6px">
             <div class="fb-like"
                 data-href="@ps_ServerHelper.Domain/@Model.TagName"
                 data-width="100" data-layout="button_count"
                 data-show-faces="false" data-send="false">
             </div>
-        </td>*@
+        </td>
 
     </tr>
 </table>

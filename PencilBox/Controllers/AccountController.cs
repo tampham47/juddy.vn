@@ -372,7 +372,7 @@ namespace PencilBox.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return Redirect("/");
             }
         }
 

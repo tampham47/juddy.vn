@@ -19,7 +19,8 @@
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>*@
-    <div class="theme-f" style="height:30px; color:white; font-weight:bold; line-height:30px; text-align:right; width:auto; text-align:center">
+    @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
+    @*<div class="theme-f" style="height:30px; color:white; font-weight:bold; line-height:30px; text-align:right; width:auto; text-align:center">
         @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", style="color:white" })
-    </div>
+    </div>*@
 }

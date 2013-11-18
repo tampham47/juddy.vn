@@ -11,6 +11,9 @@
 </hgroup>
 
 <section id="loginForm">
+    <h2>Bạn có thể login bằng facebook</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+@*
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     @Html.AntiForgeryToken()
@@ -56,11 +59,12 @@
             </td>
         </tr>
     </table>
-}
+}*@
 </section>
 
 @*<section class="social" id="socialLoginForm">
     <h2>Use another service to log in.</h2>
+    <h2>Bạn có thể login bằng facebook</h2>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>*@
 

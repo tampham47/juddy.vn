@@ -24,21 +24,21 @@
                 <td style="padding-right:0px; width:40px">
                     <div style="height:30px; width:70px; color:white; text-align:center">
                         <a href="@Url.Action("Add", "Tag")" style="color:white; text-decoration: none; line-height:30px;">
-                            +Tag
+                            tạo shop
                         </a>
                     </div>
                 </td>
                 <td style="text-align: right; color:white; padding-right:0px; max-width:120px">
                     @Html.Partial("_LoginPartial")
                 </td>
-                @if(Request.IsAuthenticated)
+                @*@if(Request.IsAuthenticated)
                 {
                     <td style="width:20px; padding-left:0px; padding-right:0px;">
                         <div style="height:30px; width:30px; background-color:#ea1943; color:white; font-weight:bold; text-align:center">
                             <a href="#" style="color:white; text-decoration: none; line-height:30px;">
                                 <img src="~/Content/images/shopping-cart.png" width="30" />
                             </a></div></td>
-                }
+                }*@
             </tr>
         </table>
     </div>
