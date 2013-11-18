@@ -1,7 +1,7 @@
 ﻿@model PbData.Entities.pb_HashTag
 
 @{
-    ViewBag.Title = "New Tag";
+    ViewBag.Title = "Tạo shop";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <style>
@@ -15,121 +15,55 @@
     <h2>@ViewBag.Message</h2>
 </hgroup>
 
-<form class="form-horizontal" role="form">
-    <div class="form-group">
-        <label for="textName" class="col-sm-3 control-label">text name</label>
+<form class="form-horizontal" role="form" method="post">
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="textName" class="col-sm-3 control-label">Tên shop</label>
         <div class="col-sm-9">
             <input name="@Html.NameFor(m=>m.TextName)" type="text" class="form-control" id="textName" placeholder="text name" >
+            <span class="help-block">Thời trang bé yêu</span>
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="hashtag" class="col-sm-3 control-label">hash tag</label>
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="hashtag" class="col-sm-3 control-label">Hashtag của shop</label>
         <div class="col-sm-9">
             <input name="@Html.NameFor(m=>m.TagName)" type="text" class="form-control" id="hashtag" placeholder="hash tag" >
+            <span class="help-block"><a href="http://juddy.vn/thoitrangbeyeu"><span>http://juddy.vn/</span><b>thoitrangbeyeu</b></a></span>
         </div>
     </div>
     
-    <div class="form-group">
-        <label for="description" class="col-sm-3 control-label">default tag</label>
+    @*<div class="form-group">
+        <label for="description" class="col-sm-3 control-label">danh mục sản phẩm (tag)</label>
         <div class="col-sm-9">
-            <input name="@Html.NameFor(m=>m.Description)" type="text" class="form-control" id="description" placeholder="description" >
+            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="4"></textarea>
+            <span class="help-block">thoitrangbetrai (thời trang bé trai), thoitrangbegai (thời trang bé gái)</span>
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         <label for="iconUpload" class="col-sm-3 control-label">icon</label>
         <div class="col-sm-9">
             <input name="attachments" id="upload_files" type="file" />
+            @*<span class="help-block">bạn nên có một icon đặc trưng cho shop của mình</span>*@
         </div>
     </div>
 
     <div class="form-group">
-        <label for="description" class="col-sm-3 control-label">description</label>
+        <label for="description" class="col-sm-3 control-label">mô tả shop</label>
         <div class="col-sm-9">
-            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control"></textarea>
+            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="5"></textarea>
         </div>
     </div>
     <div class="form-group">
+        @Html.HiddenFor(m => m.UserId)
+
         <label for="description" class="col-sm-3 control-label"></label>
         <div class="col-sm-9">
-            <button type="submit" class="btn btn-success">submit</button>
-            <button type="button" class="btn btn-default">cancel</button>
+            <button type="submit" class="btn btn-success">tạo shop</button>
+            <a href="/" class="btn btn-default">hủy</a>
         </div>
     </div>
-    
-    @*<table>
-        <tr>
-            <td style="text-align:right; width:90px">Text Name</td>
-            <td>
-                @Html.TextBoxFor(m => m.TextName)
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:right">HashTag</td>
-            <td>
-                @Html.TextBoxFor(m => m.TagName)
-            </td>
-        </tr>
-
-        <tr>
-            <td style="text-align:right">Icon</td>
-            <td>
-                <input name="attachments" id="upload_files" type="file" />
-            </td>
-        </tr>
-
-        <tr>
-            <td style="text-align:right">Description</td>
-            <td>
-                @Html.TextAreaFor(m => m.Description)
-            </td>
-        </tr>
-
-        <tr>
-            <td style="text-align:right"></td>
-            <td>
-                @Html.HiddenFor(m => m.UserId)
-                <input type="submit" value="Publish" class="modern-button theme-a width120" />
-
-                <a href="@Url.Action("Index", "Tag")" 
-                    class="modern-button theme-b" 
-                    style="display:inline-block; width:120px;">Cancel</a>
-            </td>
-        </tr>
-
-    </table>*@
 </form>
-
-@*<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success">Sign in</button>
-        <button type="submit" class="btn btn-default">Cancel</button>
-    </div>
-  </div>
-</form>*@
 
 <script type="text/javascript">
     $(document).ready(function () {

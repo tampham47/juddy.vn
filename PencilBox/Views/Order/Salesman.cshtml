@@ -12,7 +12,33 @@
 <div id="panel_OrderSearch" class="border-bottom" 
     style="padding-bottom:4px; margin-bottom:6px">
 
-    <table class="grid">
+    <div class="input-group">
+        @*<div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Hôm nay <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Hôm nay</a></li>
+                <li><a href="#">Từ hôm qua</a></li>
+                <li><a href="#">Trong tuần này</a></li>
+                <li><a href="#">Trong tháng này</a></li>
+            </ul>
+        </div>*@
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Mã người dùng <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Mã người dùng</a></li>
+                <li><a href="#">Mã sản phẩm</a></li>
+                <li><a href="#">Mã hóa đơn</a></li>
+            </ul>
+        </div>
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-info">search</button>
+        </span>
+    </div>
+
+    @*<table class="grid">
         <tr>
             <td>Lọc từ thời điểm</td>
             <td>Tìm kiếm theo</td>
@@ -48,7 +74,7 @@
                     style="display:inline-block; width:120px; height:30px; line-height:30px; text-align:center">Search</a>
             </td>
         </tr>
-    </table>
+    </table>*@
 </div>
 
 @foreach (var item in Model)

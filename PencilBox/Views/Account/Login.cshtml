@@ -11,7 +11,8 @@
 </hgroup>
 
 <section id="loginForm">
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(false)
 
@@ -51,7 +52,7 @@
         <tr>
             <td class="label"></td>
             <td>
-                <p style="margin-top:50px">@Html.ActionLink("Register", "Register", null, new { @class="modern-button theme-b width80" }) if you don't have an account.</p>
+                <p style="margin-top:50px">@Html.ActionLink("Register", "Register", null, new { @class = "modern-button theme-b width80" }) if you don't have an account.</p>
             </td>
         </tr>
     </table>

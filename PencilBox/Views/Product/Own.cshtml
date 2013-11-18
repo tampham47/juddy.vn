@@ -12,7 +12,24 @@
 <div id="panel_ProductSearch" class="border-bottom" 
     style="padding-bottom:4px; margin-bottom:6px">
 
-    <table class="grid">
+    <div class="input-group">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Hôm nay <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Hôm nay</a></li>
+                <li><a href="#">Từ hôm qua</a></li>
+                <li><a href="#">Trong tuần này</a></li>
+                <li><a href="#">Trong tháng này</a></li>
+            </ul>
+        </div>
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-info">search</button>
+        </span>
+    </div>
+
+    @*<table class="grid">
         <tr>
             <td style="width:140px">
                 <select class="dropDown" style="width:140px; margin-top:-1px">
@@ -22,13 +39,6 @@
                     <option value="3">Trong tháng này</option>
                 </select>
             </td>
-            @*<td style="width:140px">
-                <select class="dropDown" style="width:140px; margin-top:-1px">
-                    <option value="1">Mã người dùng</option>
-                    <option value="2">Mã sản phẩm</option>
-                    <option value="3">Mã hóa đơn</option>
-                </select>
-            </td>*@
             <td>
                 @using (Html.BeginForm("Filter", "Product", FormMethod.Get, new { style="display:inline" }))
                 {
@@ -42,7 +52,7 @@
                     style="display:inline-block; width:120px; height:30px; line-height:30px; text-align:center">Search</a>
             </td>
         </tr>
-    </table>
+    </table>*@
 </div>
 
 @foreach (var item in Model)

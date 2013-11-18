@@ -37,27 +37,24 @@
 
                 <div class="metro-panel">
                     <div class="theme-g">Your Business</div>
-                    @Html.ActionLink("Manage categories", "Index", "Tag")
-                    @Html.ActionLink("Manage products", "Own", "Product")
-                    @Html.ActionLink("Orders", "Salesman", "Order")
+                    @Html.ActionLink("quản lý shop", "Index", "Tag")
+                    @Html.ActionLink("quản lý sản phẩm", "Own", "Product")
+                    @Html.ActionLink("quản lý đơn đặt hàng", "Salesman", "Order")
                     @*@Html.ActionLink("Customers", "Index", "Tag")*@
 
                     <div class="theme-g" style="margin-top:8px">Your infomation</div>
-                    @Html.ActionLink("Infomation", "Index", "User")
-                    @Html.ActionLink("Your Orders", "Customer", "Order")
+                    @Html.ActionLink("thông tin người dùng", "Index", "User")
+                    @Html.ActionLink("đơn đặt hàng", "Customer", "Order")
                     @*@Html.ActionLink("Shopping cart", "Index", "Contact")*@
-                    @Html.ActionLink("Favourites", "Favourite", "User")
+                    @Html.ActionLink("sản phẩm yêu thích", "Favourite", "User")
 
                     <form action="~/Account/LogOff" id="logoutForm" method="post">
                         @Html.AntiForgeryToken()
-                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">đăng xuất</a>
                     </form>
                 </div>
             </div>
         </section>
-        @*<section class="content-wrapper main-content clear-fix">
-            @RenderBody()
-        </section>*@
     </div>
 
     @Html.Partial("p_Footer")
