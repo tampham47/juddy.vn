@@ -3,22 +3,48 @@
 @Html.AntiForgeryToken()
 @Html.ValidationSummary(true)
 
-<div class="element">
+<div class="form-group">
+    <label for="address">Địa chỉ (*)</label>
+    @Html.TextBoxFor(m => m.Address, new { @class="form-control", id="address" })
+
+    <span>
+        @Html.ValidationMessageFor(m => m.Address)
+    </span>
+</div>
+
+<div class="form-group">
+    <label>Chọn vị trí (*)</label>
+    <div id="map_canvas" style="width:100%; height:300px"></div>
+</div>
+
+<div class="form-group">
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.LocationId)
+
+    @Html.HiddenFor(m => m.Latitude)
+    @Html.HiddenFor(m => m.Longitude)
+
+    <button type="submit" class="btn btn-success">thêm địa điểm</button>
+    <a href="@Url.Action("Index", "User")" class="btn btn-default">hủy</a>
+</div>
+    
+@*<div class="element">
     <div>Địa chỉ (*)</div>
     <div>
-        @Html.TextBoxFor(m => m.Address, new { style = "width:670px; height:22px; font-size:16px" })
+        @Html.TextBoxFor(m => m.Address, 
+            new { style = "width:670px; height:22px; font-size:16px" })
         <div>
             @Html.ValidationMessageFor(m => m.Address)
         </div>
     </div>
-</div>
-    
-<div class="element">
+</div>*@
+
+@*<div class="element">
     <div class="ImportantElement">Chọn vị trí (*)</div>
     <div id="map_canvas" style="width:100%; height:300px"></div>
-</div>
-    
-<div class="element">
+</div>*@
+
+@*<div class="element">
     @Html.HiddenFor(m => m.UserId)
     @Html.HiddenFor(m => m.LocationId)
 
@@ -27,6 +53,7 @@
 
     <div style="margin-top:5px">
         <input type="submit" value="Add Location" class="modern-button theme-a width120" style="border:none"/>
+
         <a href="@Url.Action("Index", "User")" class="modern-button theme-b width80">Cancel</a>
     </div>
-</div>
+</div>*@
