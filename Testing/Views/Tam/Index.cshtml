@@ -29,9 +29,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            <div style="max-height:200px; max-width:200px; overflow:hidden">
+            @*<div style="max-height:200px; max-width:200px; overflow:hidden">
                 <img src="http://localhost:2064/PencilBox_Data/Images/@item.CoverImage.ImagePath" width="200" />
-            </div>
+            </div>*@
         </td>
         <td>
             @Html.ActionLink(item.Name, "ProductDetails", new { productId = item.ProductId })

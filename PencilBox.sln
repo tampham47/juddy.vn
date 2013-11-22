@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editing", "Editing\Editing.csproj", "{FAFA598B-FB95-4731-8743-610C97FECB7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juddy.Admin", "Juddy.Admin\Juddy.Admin.csproj", "{F1D0C577-7565-4634-BD91-4B7FD8EAD201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juddy.Admin", "Juddy.Admin\Juddy.Admin.csproj", "{EA1CA241-B7A3-461B-861D-B483FB741475}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -37,10 +37,10 @@ Global
 		{FAFA598B-FB95-4731-8743-610C97FECB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAFA598B-FB95-4731-8743-610C97FECB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAFA598B-FB95-4731-8743-610C97FECB7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1D0C577-7565-4634-BD91-4B7FD8EAD201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1D0C577-7565-4634-BD91-4B7FD8EAD201}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1D0C577-7565-4634-BD91-4B7FD8EAD201}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1D0C577-7565-4634-BD91-4B7FD8EAD201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1CA241-B7A3-461B-861D-B483FB741475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1CA241-B7A3-461B-861D-B483FB741475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1CA241-B7A3-461B-861D-B483FB741475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1CA241-B7A3-461B-861D-B483FB741475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
