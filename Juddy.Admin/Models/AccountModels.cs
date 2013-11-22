@@ -19,7 +19,7 @@ namespace Juddy.Admin.Models
         public DbSet<UserProfile> UserProfiles { get; set; }
     }
 
-    [Table("UserProfile")]
+    [Table("pb_UserProfile")]
     public class UserProfile
     {
         [Key]
