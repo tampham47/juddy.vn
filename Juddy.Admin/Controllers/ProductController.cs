@@ -17,6 +17,7 @@ namespace Juddy.Admin.Controllers
         {
             bn_Product bnProduct = new bn_Product();
             var model = bnProduct.GetByTags("pbox");
+            var model1 = bnProduct.GetAll();
             return View(model);
         }
 
