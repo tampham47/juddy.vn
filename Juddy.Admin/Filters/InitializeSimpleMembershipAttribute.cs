@@ -38,7 +38,7 @@ namespace Juddy.Admin.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "pb_UserProfile", "MembershipId", "UserName", autoCreateTables: false);
                 }
                 catch (Exception ex)
                 {
