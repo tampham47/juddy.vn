@@ -214,7 +214,7 @@
     <Content Include="Content\custom-scrollbar\js\uncompressed\jquery.mCustomScrollbar.js" />
     <Content Include="Content\custom-scrollbar\js\uncompressed\jquery.mousewheel.js" />
     <Content Include="Content\images\allapp-a.png" />
-    <Content Include="Content\images\allapp-icon.ico" />
+    <Content Include="Content\images\allapp-icon2.ico" />
     <Content Include="Content\images\base-add-dark.png" />
     <Content Include="Content\images\base-add-light.png" />
     <Content Include="Content\images\base-delete-dark.png" />
@@ -233,6 +233,7 @@
     <Content Include="Content\images\contact-skype.png" />
     <Content Include="Content\images\contact-yahoo.png" />
     <Content Include="Content\images\default-company.jpg" />
+    <Content Include="Content\images\allapp-icon.ico" />
     <Content Include="Content\images\map-c.png" />
     <Content Include="Content\images\map-32.png" />
     <Content Include="Content\images\none-add-dark.png" />
