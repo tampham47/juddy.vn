@@ -1,62 +1,73 @@
 ﻿@model PbData.Entities.pb_HashTag
 
 @{
-    ViewBag.Title = "Chỉnh sửa shop";
+    ViewBag.Title = "Chỉnh sửa thông tin";
 }
 
-<hgroup class="title">
+@*<hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>@ViewBag.Message</h2>
-</hgroup>
+</hgroup>*@
 
-<form action="/Tag/Edit" method="post">
-    <table>
-        <tr>
-            <td style="text-align:right">HashTag</td>
-            <td>
-                <label>@Model.TagName</label>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:right; width:90px">Text Name</td>
-            <td>
-                @Html.TextBoxFor(m => m.TextName)
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:right">Icon</td>
-            <td>
-                <input name="attachments" id="upload_files" type="file" />
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align:right">Description</td>
-            <td>
-                @Html.TextAreaFor(m => m.Description)
-            </td>
-        </tr>
+<form class="form-horizontal" role="form" method="post">
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="textName" class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </div>
 
-        <tr>
-            <td style="text-align:right">Default HashTags</td>
-            <td>
-                <textarea></textarea>
-            </td>
-        </tr>
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="hashtag" class="col-sm-3 control-label">tag của shop</label>
+        <div class="col-sm-9">
+            <span class="help-block" style="font-size: 1.2em;">
+                <a href="http://juddy.vn/@Model.TagName"><span>http://juddy.vn/</span><b>@Model.TagName</b></a>
+            </span>
+        </div>
+    </div>
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="textName" class="col-sm-3 control-label">Tên shop</label>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.TextName, new { @class = "form-control", id="textName", placeholder="text name" })
+            <span class="help-block">Thời trang bé yêu</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" class="col-sm-3 control-label">danh mục sản phẩm (tag)</label>
+        <div class="col-sm-9">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
+            <span class="help-block">Đây là thông tin chứa các danh mục sản phầm mà shop sẽ bán, hệ thống sẽ cung cấp công cụ giúp người dùng lọc ra từng thể loại sản phẩm dễ dàng.</span>
+            <span class="help-block">Ví dụ: thoitrangbetrai (thời trang bé trai), thoitrangbegai (thời trang bé gái)</span>
+        </div>
+    </div>
 
-        <tr>
-            <td style="text-align:right"></td>
-            <td>
-                @Html.HiddenFor(m => m.HashTagId)
-                @Html.HiddenFor(m => m.Type)
-                @Html.HiddenFor(m => m.IconPath)
-                <input type="submit" value="Publish" class="modern-button theme-a width120" />
+    <div class="form-group">
+        <label for="iconUpload" class="col-sm-3 control-label">icon</label>
+        <div class="col-sm-9">
+            <input name="attachments" id="upload_files" type="file" />
+        </div>
+    </div>
 
-                <a href="@Url.Action("Index", "Tag")"
-                    class="modern-button theme-b"
-                    style="display:inline-block; width:120px;">Cancel</a>
-            </td>
-        </tr>
-    </table>
+    <div class="form-group">
+        <label for="description" class="col-sm-3 control-label">mô tả shop</label>
+        <div class="col-sm-9">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.HashTagId)
+        @Html.HiddenFor(m => m.Type)
+        @Html.HiddenFor(m => m.IconPath)
+        <label for="description" class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <button type="submit" class="btn btn-success">cập nhật thông tin</button>
+            <a href="/@Model.TagName" class="btn btn-default">hủy</a>
+        </div>
+    </div>
 </form>
 
 <script type="text/javascript">
@@ -69,5 +80,4 @@
             }
         });
     })
-
 </script>

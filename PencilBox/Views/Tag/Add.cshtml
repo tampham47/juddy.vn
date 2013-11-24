@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Tạo shop";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    //Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <style>
     label {
@@ -10,50 +10,58 @@
     }
 </style>
 
-<hgroup class="title">
+@*<hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>@ViewBag.Message</h2>
-</hgroup>
+</hgroup>*@
 
 <form class="form-horizontal" role="form" method="post">
     <div class="form-group" style="margin-bottom:0px">
-        <label for="textName" class="col-sm-3 control-label">Tên shop</label>
+        <label for="textName" class="col-sm-3 control-label"></label>
         <div class="col-sm-9">
-            @*<input name="@Html.NameFor(m=>m.TextName)" type="text" class="form-control" id="textName" placeholder="text name" >*@
-            @Html.TextBoxFor(m => m.TextName, new { @class = "form-control", id="textName", placeholder="text name" })
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="textName" class="col-sm-3 control-label">tên shop</label>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.TextName, new { @class = "form-control", id="textName", placeholder="tên shop" })
             <span class="help-block">Thời trang bé yêu</span>
         </div>
     </div>
 
     <div class="form-group" style="margin-bottom:0px">
-        <label for="hashtag" class="col-sm-3 control-label">Hashtag của shop</label>
+        <label for="hashtag" class="col-sm-3 control-label">tag của shop</label>
         <div class="col-sm-9">
-            @*<input name="@Html.NameFor(m=>m.TagName)" type="text" class="form-control" id="hashtag" placeholder="hash tag" >*@
-            @Html.TextBoxFor(m => m.TagName, new { @class="form-control", id="hashtag", placeholder="hash tag" })
+            @Html.TextBoxFor(m => m.TagName, new { @class="form-control", id="hashtag", placeholder="tag" })
+            <span class="help-block">Thông tin này được gán một lần duy nhất, và không thể chỉnh sửa về sau.</span>
             <span class="help-block"><a href="http://juddy.vn/thoitrangbeyeu"><span>http://juddy.vn/</span><b>thoitrangbeyeu</b></a></span>
         </div>
     </div>
     
-    @*<div class="form-group">
+    <div class="form-group">
         <label for="description" class="col-sm-3 control-label">danh mục sản phẩm (tag)</label>
         <div class="col-sm-9">
-            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="4"></textarea>
-            <span class="help-block">thoitrangbetrai (thời trang bé trai), thoitrangbegai (thời trang bé gái)</span>
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
+            <span class="help-block">Đây là thông tin chứa các danh mục sản phầm mà shop sẽ bán, hệ thống sẽ cung cấp công cụ giúp người dùng lọc ra từng thể loại sản phẩm dễ dàng.</span>
+            <span class="help-block">Ví dụ: thoitrangbetrai (thời trang bé trai), thoitrangbegai (thời trang bé gái)</span>
         </div>
-    </div>*@
+    </div>
 
     <div class="form-group">
         <label for="iconUpload" class="col-sm-3 control-label">icon</label>
         <div class="col-sm-9">
             <input name="attachments" id="upload_files" type="file" />
-            @*<span class="help-block">bạn nên có một icon đặc trưng cho shop của mình</span>*@
         </div>
     </div>
 
     <div class="form-group">
         <label for="description" class="col-sm-3 control-label">mô tả shop</label>
         <div class="col-sm-9">
-            @*<textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="5"></textarea>*@
             @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
         </div>
     </div>
