@@ -70,6 +70,10 @@ namespace PbData.Business
 
             return re;
         }
+        public int UpdateStatus(Guid productId, int status)
+        {
+            return (int)db.pb_Product_UpdateStatus(productId, status).Single();
+        }
         public int Delete(Guid productId)
         {
             int re = (int)db.pb_Product_Delete(productId).Single();

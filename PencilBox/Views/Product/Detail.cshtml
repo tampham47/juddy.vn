@@ -41,6 +41,12 @@
                             new { productId = @Model.ProductId }, 
                             new { @class = "modern-button theme-b" })
                     </td>
+                    <td style="width: 80px; padding-left:4px">
+                        @Html.ActionLink("Delete", "Delete", "Product", 
+                            new { id = @Model.ProductId }, 
+                            new { @class = "modern-button theme-b" })
+
+                    </td>
                 } else
                 {
                     <td style="width: 120px;">

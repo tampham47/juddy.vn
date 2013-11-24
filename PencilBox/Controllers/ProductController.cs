@@ -189,6 +189,15 @@ namespace PencilBox.Controllers
         }
 
         [Authorize]
+        public ActionResult Delete(Guid id)
+        {
+            bn_Product bnProduct = new bn_Product();
+            bnProduct.UpdateStatus(
+                id, EProduct_Status.UnAvailable);
+            return Redirect("/");
+        }
+
+        [Authorize]
         public ActionResult Favourite(Guid productId)
         {
             bn_ProductTag bnProductTag = new bn_ProductTag(productId);
