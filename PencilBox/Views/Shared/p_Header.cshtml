@@ -31,8 +31,13 @@
                                 <li><a href="/">Trang chủ</a></li>
                             </ul>
                         </div>
-                        <input type="text" class="form-control input-sm" placeholder="#tags" 
-                            style="background-color:#727268; border-color:#68685e; color:white; font-size:14px; outline:none">
+                        @using (Html.BeginForm("Filter","Product"))
+                        {
+                            <input type="text" name="request" value="@ViewBag.FilterRequest"
+                                class="form-control input-sm" placeholder="#tags" 
+                                style="background-color:#727268; border-color:#68685e; color:white; font-size:14px; outline:none">
+                        }
+                        
                     </div>
                 </td>
                 <td style="width:500px"></td>
