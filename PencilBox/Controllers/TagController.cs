@@ -58,12 +58,14 @@ namespace PencilBox.Controllers
         {
             bn_HashTag bnHashTag = new bn_HashTag();
             string iconPath = (string)Session["IconPath"];
+            if (iconPath != null)
+                model.IconPath = iconPath;
             //Check image
-            if (iconPath == "" || iconPath == null)
-            {
-                ViewBag.Message = "Phải có ít nhất một hình ảnh.";
-                return View(model);
-            }
+            //if (iconPath == "" || iconPath == null)
+            //{
+            //    ViewBag.Message = "Phải có ít nhất một hình ảnh.";
+            //    return View(model);
+            //}
 
             //Check hashtag
             if (bnHashTag.IsExists(model.TagName))
@@ -79,7 +81,7 @@ namespace PencilBox.Controllers
                     EHashtag_Type.Private,
                     model.TextName,
                     model.TagName,
-                    iconPath,
+                    model.Icon,
                     model.Description);
 
                 //clear iconpath;

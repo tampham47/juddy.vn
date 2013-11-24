@@ -19,7 +19,8 @@
     <div class="form-group" style="margin-bottom:0px">
         <label for="textName" class="col-sm-3 control-label">Tên shop</label>
         <div class="col-sm-9">
-            <input name="@Html.NameFor(m=>m.TextName)" type="text" class="form-control" id="textName" placeholder="text name" >
+            @*<input name="@Html.NameFor(m=>m.TextName)" type="text" class="form-control" id="textName" placeholder="text name" >*@
+            @Html.TextBoxFor(m => m.TextName, new { @class = "form-control", id="textName", placeholder="text name" })
             <span class="help-block">Thời trang bé yêu</span>
         </div>
     </div>
@@ -27,7 +28,8 @@
     <div class="form-group" style="margin-bottom:0px">
         <label for="hashtag" class="col-sm-3 control-label">Hashtag của shop</label>
         <div class="col-sm-9">
-            <input name="@Html.NameFor(m=>m.TagName)" type="text" class="form-control" id="hashtag" placeholder="hash tag" >
+            @*<input name="@Html.NameFor(m=>m.TagName)" type="text" class="form-control" id="hashtag" placeholder="hash tag" >*@
+            @Html.TextBoxFor(m => m.TagName, new { @class="form-control", id="hashtag", placeholder="hash tag" })
             <span class="help-block"><a href="http://juddy.vn/thoitrangbeyeu"><span>http://juddy.vn/</span><b>thoitrangbeyeu</b></a></span>
         </div>
     </div>
@@ -51,7 +53,8 @@
     <div class="form-group">
         <label for="description" class="col-sm-3 control-label">mô tả shop</label>
         <div class="col-sm-9">
-            <textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="5"></textarea>
+            @*<textarea name="@Html.NameFor(m=>m.Description)" class="form-control" rows="5"></textarea>*@
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
         </div>
     </div>
     <div class="form-group">

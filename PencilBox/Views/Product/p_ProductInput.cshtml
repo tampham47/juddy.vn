@@ -2,21 +2,21 @@
 
 <table>
     <tr>
-        <td style="text-align:right; width:90px">Product Name</td>
+        <td style="text-align:right; width:120px">tên sản phẩm</td>
         <td>
             @Html.TextBoxFor(m => m.Product.Name)
             @Html.ValidationMessageFor(m => m.Product.Name)
         </td>
     </tr>
     <tr>
-        <td style="text-align:right">Price</td>
+        <td style="text-align:right">giá</td>
         <td>
             @Html.TextBoxFor(m => m.Product.Price)
             @Html.ValidationMessageFor(m => m.Product.Price)
         </td>
     </tr>
     <tr>
-        <td style="text-align:right">Photos</td>
+        <td style="text-align:right">hình ảnh</td>
         <td>
             @foreach (var photo in Model.ProductPhotos)
             {
@@ -26,7 +26,7 @@
         </td>
     </tr>
     <tr>
-        <td style="text-align:right">Description</td>
+        <td style="text-align:right">mô tả sản phẩm</td>
         <td>
             <textarea id="editor" name="@Html.NameFor(m=>m.Product.Description)" rows="10" cols="30" style="width:620px;height:300px">
                 @Html.Raw(Model.Product.Description)
@@ -45,8 +45,9 @@
         <td>
             @Html.HiddenFor(m => m.Product.ProductId)
             @Html.HiddenFor(m => m.Product.UserId)
-            <input type="submit" value="Publish" class="modern-button theme-a width120" />
-            <a href="~/@Model.Tags.Replace("#", "")" class="modern-button theme-b" style="display:inline-block; width:120px;">Cancel</a>
+            @*<input type="submit" value="Publish" class="btn btn-success" />*@
+            <button type="submit" class="btn btn-success">đăng sản phẩm</button>
+            <a href="~/@Model.Tags.Replace("#", "")" class="btn btn-default">hủy</a>
         </td>
     </tr>
 </table>
