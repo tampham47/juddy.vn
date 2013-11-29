@@ -9,12 +9,13 @@ namespace PbData.Business
     public class bn_UserProfile
     {
         private pb_Entities db = new pb_Entities();
-        public bn_UserProfile(pb_Entities connection = null)
+        public bn_UserProfile(pb_Entities connection = null, bool isLazy = true)
         {
             if (connection != null)
             {
                 db = connection;
             }
+            db.Configuration.LazyLoadingEnabled = isLazy;
         }
 
         public pb_UserProfile GetByUserName(string userName)
@@ -34,6 +35,10 @@ namespace PbData.Business
                 return users.First();
             else
                 return null;
+        }
+        public List<pb_UserProfile> GetAll()
+        {
+            return db.pb_UserProfile.ToList();
         }
 
         public bool IsExists(string userName)
