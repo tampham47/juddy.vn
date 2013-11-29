@@ -5,16 +5,91 @@
     Layout = "~/Views/Shared/_OrderLayout.cshtml";
 }
 
-<hgroup class="title">
+@*<hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>@ViewBag.Message</h2>
-</hgroup>
+</hgroup>*@
 
-@using (Html.BeginForm())
-{
-    <table>
+<form class="form-horizontal" role="form" method="post">
+    <div class="form-group" style="margin-bottom:0px">
+        <label for="textName" class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">tên sản phẩm</label>
+        <div class="col-sm-9">  
+            <label>@Model.Product.Name</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">giá</label>
+        <div class="col-sm-9">  
+            <span id="text_price">@Model.Order.Price</span><span>VNĐ</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">số lượng</label>
+        <div class="col-sm-9">  
+            @Html.TextBoxFor(m => m.Order.Amount, new { @class = "form-control", type="number" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">thành tiền</label>
+        <div class="col-sm-9">  
+            <span id="text_price">@Model.Order.Price</span><span>VNĐ</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">họ tên</label>
+        <div class="col-sm-9">  
+            @Html.TextBoxFor(m => m.Order.CustomerName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">điện thoại</label>
+        <div class="col-sm-9">  
+            @Html.TextBoxFor(m => m.Order.CustomerPhone, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">địa chỉ</label>
+        <div class="col-sm-9">  
+            @Html.TextBoxFor(m => m.Order.Address, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productName" class="col-sm-3 control-label">ghi chú</label>
+        <div class="col-sm-9">  
+            @Html.TextAreaFor(m => m.Order.Comment, new { @class = "form-control", rows = "4" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            @Html.HiddenFor(m => m.Order.ProductId)
+            @Html.HiddenFor(m => m.Order.Price)
+            @Html.HiddenFor(m => m.Order.UserId)
+
+            <button type="submit" class="btn btn-success">đặt hàng</button>
+            @Html.ActionLink("hủy", "Detail", "Product", 
+                new { productId = @Model.Product.ProductId }, 
+                new { @class = "btn btn-default" })
+        </div>
+    </div>
+   
+    @*<table>
         <tr>
-            <td style="text-align:right; width:90px">Product</td>
+            <td style="text-align:right; width:120px">Product</td>
             <td><label>@Model.Product.Name</label></td>
         </tr>
         <tr>
@@ -41,7 +116,7 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align:right; width:90px">Your Name</td>
+            <td style="text-align:right;">Your Name</td>
             <td>
                 @Html.TextBoxFor(m => m.Order.CustomerName)
             </td>
@@ -78,9 +153,9 @@
                     new { @class = "modern-button theme-b width120" })
             </td>
         </tr>
+    </table>*@
+</form>
 
-    </table>
-}
 
 @section rightpanel
 {
