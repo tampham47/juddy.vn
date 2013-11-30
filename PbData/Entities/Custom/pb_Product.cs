@@ -30,8 +30,9 @@ namespace PbData.Entities
             {
                 var pro = ProductId;
                 var covers = CoverImageList();
-                var index = random.Next(0, covers.Count);
+                if (covers.Count == 0) return null;
 
+                var index = random.Next(0, covers.Count);
                 return covers[index];
             }
         }
