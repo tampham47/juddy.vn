@@ -165,7 +165,7 @@ namespace PbData.Business
                     EHashtag_Type.Public,
                     null,
                     tagName,
-                    null, null);
+                    null, null, null);
 
                 if (hashTagId != Guid.Empty)
                 {

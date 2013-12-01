@@ -57,7 +57,7 @@ namespace PbData.Business
             return result.Trim();
         }
 
-        public Guid Create(Nullable<System.Guid> userId, Nullable<byte> type, string textName, string tagName, string iconPath, string description)
+        public Guid Create(Nullable<System.Guid> userId, Nullable<byte> type, string textName, string tagName, string iconPath, string description, string userTypes)
         {
             if (!IsExists(tagName))
             {
@@ -69,7 +69,8 @@ namespace PbData.Business
                     textName,
                     tagName.Trim().ToLower(),
                     iconPath,
-                    description).Single();
+                    description,
+                    userTypes).Single();
 
                 if (re >= 0)
                     return hashId;
@@ -85,7 +86,7 @@ namespace PbData.Business
         {
             var result = Create(null, EHashtag_Type.Public,
                 tagName, tagName,
-                null, null);
+                null, null, null);
 
             return result;
         }
@@ -101,13 +102,14 @@ namespace PbData.Business
 
             return result;
         }
-        public int Update(Guid hashTagId, byte? type, string iconPath, string description)
+        public int Update(Guid hashTagId, byte? type, string iconPath, string description, string userTypes)
         {
             var re = (int)db.pb_HashTag_Update(
                 hashTagId,
                 type,
                 iconPath,
-                description).Single();
+                description,
+                userTypes).Single();
 
             return re;
         }
@@ -132,7 +134,7 @@ namespace PbData.Business
                 Create(
                     null,
                     EHashtag_Type.Public,
-                    null, tagName, null, null);
+                    null, tagName, null, null, null);
             }
 
             var hashTags = db.pb_HashTag_GetbyTagName(tagName.ToLower()).ToList();

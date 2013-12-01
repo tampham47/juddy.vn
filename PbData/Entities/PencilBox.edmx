@@ -107,6 +107,7 @@
           <Property Name="DateUpdated" Type="datetime" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
           <Property Name="Views" Type="bigint" Nullable="false" />
+          <Property Name="UserTypes" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="pb_Location">
           <Key>
@@ -398,6 +399,7 @@
           <Parameter Name="tagName" Type="varchar" Mode="In" />
           <Parameter Name="iconPath" Type="varchar" Mode="In" />
           <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="userTypes" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pb_HashTag_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="hashTagId" Type="uniqueidentifier" Mode="In" />
@@ -416,6 +418,7 @@
           <Parameter Name="type" Type="tinyint" Mode="In" />
           <Parameter Name="iconPath" Type="varchar" Mode="In" />
           <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="userTypes" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pb_Location_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="locationId" Type="uniqueidentifier" Mode="In" />
@@ -643,6 +646,7 @@
             <Parameter Name="tagName" Mode="In" Type="String" />
             <Parameter Name="iconPath" Mode="In" Type="String" />
             <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="userTypes" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pb_HashTag_Delete" ReturnType="Collection(Int32)">
           <Parameter Name="hashTagId" Mode="In" Type="Guid" />
@@ -652,6 +656,7 @@
             <Parameter Name="type" Mode="In" Type="Byte" />
             <Parameter Name="iconPath" Mode="In" Type="String" />
             <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="userTypes" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pb_Location_Create" ReturnType="Collection(Int32)">
             <Parameter Name="locationId" Mode="In" Type="Guid" />
@@ -1047,6 +1052,7 @@
           <Property Type="String" Name="TextName" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="DateUpdated" Nullable="false" Precision="3" />
           <Property Type="Int64" Name="Views" Nullable="false" />
+          <Property Type="String" Name="UserTypes" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="pb_Location">
           <Key>
@@ -1506,6 +1512,7 @@
           <EntitySetMapping Name="pb_HashTag">
             <EntityTypeMapping TypeName="PencilBoxModel.pb_HashTag">
               <MappingFragment StoreEntitySet="pb_HashTag">
+                <ScalarProperty Name="UserTypes" ColumnName="UserTypes" />
                 <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
                 <ScalarProperty Name="TextName" ColumnName="TextName" />

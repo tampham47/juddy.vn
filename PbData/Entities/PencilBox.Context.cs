@@ -88,7 +88,7 @@ namespace PbData.Entities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pb_Comment>("pb_Comment_GetbyProductId", mergeOption, productIdParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> pb_HashTag_Create(Nullable<System.Guid> hashTagId, Nullable<System.Guid> userId, Nullable<byte> type, string textName, string tagName, string iconPath, string description)
+        public virtual ObjectResult<Nullable<int>> pb_HashTag_Create(Nullable<System.Guid> hashTagId, Nullable<System.Guid> userId, Nullable<byte> type, string textName, string tagName, string iconPath, string description, string userTypes)
         {
             var hashTagIdParameter = hashTagId.HasValue ?
                 new ObjectParameter("hashTagId", hashTagId) :
@@ -118,7 +118,11 @@ namespace PbData.Entities
                 new ObjectParameter("description", description) :
                 new ObjectParameter("description", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_Create", hashTagIdParameter, userIdParameter, typeParameter, textNameParameter, tagNameParameter, iconPathParameter, descriptionParameter);
+            var userTypesParameter = userTypes != null ?
+                new ObjectParameter("userTypes", userTypes) :
+                new ObjectParameter("userTypes", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_Create", hashTagIdParameter, userIdParameter, typeParameter, textNameParameter, tagNameParameter, iconPathParameter, descriptionParameter, userTypesParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> pb_HashTag_Delete(Nullable<System.Guid> hashTagId)
@@ -130,7 +134,7 @@ namespace PbData.Entities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_Delete", hashTagIdParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> pb_HashTag_Update(Nullable<System.Guid> hashTagId, Nullable<byte> type, string iconPath, string description)
+        public virtual ObjectResult<Nullable<int>> pb_HashTag_Update(Nullable<System.Guid> hashTagId, Nullable<byte> type, string iconPath, string description, string userTypes)
         {
             var hashTagIdParameter = hashTagId.HasValue ?
                 new ObjectParameter("hashTagId", hashTagId) :
@@ -148,7 +152,11 @@ namespace PbData.Entities
                 new ObjectParameter("description", description) :
                 new ObjectParameter("description", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_Update", hashTagIdParameter, typeParameter, iconPathParameter, descriptionParameter);
+            var userTypesParameter = userTypes != null ?
+                new ObjectParameter("userTypes", userTypes) :
+                new ObjectParameter("userTypes", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_HashTag_Update", hashTagIdParameter, typeParameter, iconPathParameter, descriptionParameter, userTypesParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> pb_Location_Create(Nullable<System.Guid> locationId, Nullable<System.Guid> userId, Nullable<double> latitude, Nullable<double> longitude, string address)
