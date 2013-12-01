@@ -82,7 +82,8 @@ namespace PencilBox.Controllers
                     model.TextName,
                     model.TagName,
                     model.Icon,
-                    model.Description);
+                    model.Description,
+                    model.UserTypes);
 
                 //clear iconpath;
                 Session["IconPath"] = null;
@@ -122,7 +123,8 @@ namespace PencilBox.Controllers
                     model.HashTagId,
                     model.Type,
                     iconPath,
-                    model.Description);
+                    model.Description,
+                    model.UserTypes);
 
                 //clear iconpath;
                 Session["IconPath"] = null;

@@ -24,5 +24,10 @@ namespace Juddy.Services.Controllers
             bn_Product bnProduct = new bn_Product(isLazy: false);
             return bnProduct.GetByTagName(tag);
         }
+
+        public bool Favourite(Guid productId, Guid userId)
+        {
+            return false;
+        }
     }
 }

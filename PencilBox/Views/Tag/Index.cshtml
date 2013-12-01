@@ -6,12 +6,12 @@
 }
 
 <div>
-    <div style="float:right; display:inline-block">
+    @*<div style="float:right; display:inline-block">
         <a href="@Url.Action("Add", "Tag")" >
             <img src="@Url.Content("/Content/images/base-add-light.png")" width="30" style="margin-top:7px"
                 onmouseover="this.src='@Url.Content("/Content/images/base-add-dark.png")'"
                 onmouseout="this.src='@Url.Content("/Content/images/base-add-light.png")'" /></a>
-    </div>
+    </div>*@
 
     <hgroup class="title">
         <h1>@ViewBag.Title.</h1>
@@ -28,7 +28,9 @@
         </div>
 
         <div style="display:inline-block; vertical-align:top">
+            
             <a href="@Url.RouteUrl("tagName", new { item.TagName })" style="vertical-align:top; font-weight:bold">#@item.TagName</a><br />
             <b style="vertical-align:top">@item.TextName</b></div>
+        <a href="@Url.Action("Edit", new { tagName = item.TagName })" class="btn btn-success btn-sm pull-right">chỉnh sửa</a>
     </div>
 }

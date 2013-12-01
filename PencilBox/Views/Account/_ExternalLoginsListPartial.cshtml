@@ -30,6 +30,6 @@ else
 
     foreach (AuthenticationClientData p in Model)
     {
-        <button class="btn btn-info btn-sm pull-right" type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">Đăng nhập bằng @p.DisplayName</button>
+        <button class="btn btn-info btn-sm" type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">Đăng nhập bằng @p.DisplayName</button>
     }
 }
