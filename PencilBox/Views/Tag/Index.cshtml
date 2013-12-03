@@ -28,9 +28,9 @@
         </div>
 
         <div style="display:inline-block; vertical-align:top">
-            
-            <a href="@Url.RouteUrl("tagName", new { item.TagName })" style="vertical-align:top; font-weight:bold">#@item.TagName</a><br />
-            <b style="vertical-align:top">@item.TextName</b></div>
+            <a href="@Url.RouteUrl("tagName", new { item.TagName })" style="vertical-align:top; font-weight:bold">#@item.TagName</a>
+            (<span style="vertical-align:top">@item.TextName</span>)
+        </div>
         <a href="@Url.Action("Edit", new { tagName = item.TagName })" class="btn btn-success btn-sm pull-right">chỉnh sửa</a>
     </div>
 }
