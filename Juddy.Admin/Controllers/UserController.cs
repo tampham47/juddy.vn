@@ -20,17 +20,17 @@ namespace Juddy.Admin.Controllers
             return View();
         }
         public ActionResult AllUser(int page = 1)
-        {
-    
+        {         
             bn_UserProfile bnUser = new bn_UserProfile();
-            var model = bnUser.GetAll();
-            int numberOfPage = 5;
-            ViewBag.CountPage = model.Count() / numberOfPage + 1;
+
+
+            int numberOfPage = 24;
+            ViewBag.CountPage = (bnUser.GetCountAll() / numberOfPage)+1;
+            page = page > 0 ? page : 1;
+            page = page < ViewBag.CountPage ? page : ViewBag.CountPage;
+
             ViewBag.page = page;
-            if(page==model.Count() / numberOfPage+1)
-                model = model.GetRange((page-1)*numberOfPage-(numberOfPage-(model.Count() % numberOfPage)), numberOfPage);
-            else
-            model = model.GetRange((page-1)*numberOfPage,numberOfPage);
+            var model = bnUser.GetListInPage(page, numberOfPage);
             return View(model);
         }
 

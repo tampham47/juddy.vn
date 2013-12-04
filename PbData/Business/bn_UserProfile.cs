@@ -72,5 +72,18 @@ namespace PbData.Business
 
         //filter
 
+        //Than
+        public List<pb_UserProfile> GetListInPage(int page, int count = 24)
+        {
+            int numSkip = (page-1)*count;
+           return  db.pb_UserProfile.ToList().Skip(numSkip).Take(count).ToList();
+
+        }
+        public int GetCountAll()
+        {
+            return db.pb_UserProfile.Count();
+        }
+
+
     }
 }
