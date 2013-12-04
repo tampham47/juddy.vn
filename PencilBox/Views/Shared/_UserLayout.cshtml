@@ -37,18 +37,18 @@
 
                 <div class="metro-panel">
                     <div class="theme-g">Kinh doanh</div>
-                    @Html.ActionLink("Quản lý shop", "Index", "Tag")
-                    @Html.ActionLink("Quản lý sản phẩm", "Own", "Product")
-                    @Html.ActionLink("Quản lý đơn đặt hàng", "Salesman", "Order")
+                    @Html.ActionLink("Quản lý shop", "index", "tag")
+                    @Html.ActionLink("Quản lý sản phẩm", "own", "product")
+                    @Html.ActionLink("Quản lý đơn đặt hàng", "salesman", "order")
                     @*@Html.ActionLink("Customers", "Index", "Tag")*@
 
                     <div class="theme-g" style="margin-top:8px">Người dùng</div>
-                    @Html.ActionLink("Thông tin người dùng", "Index", "User")
-                    @Html.ActionLink("Đơn đặt hàng", "Customer", "Order")
+                    @Html.ActionLink("Thông tin người dùng", "index", "user")
+                    @Html.ActionLink("Đơn đặt hàng", "customer", "order")
                     @*@Html.ActionLink("Shopping cart", "Index", "Contact")*@
-                    @Html.ActionLink("Sản phẩm yêu thích", "Favourite", "User")
+                    @Html.ActionLink("Sản phẩm yêu thích", "favourite", "user")
 
-                    <form action="~/Account/LogOff" id="logoutForm" method="post">
+                    <form action="@Url.RouteUrl("default", new { controller = "account", action = "logoff" })" id="logoutForm" method="post">
                         @Html.AntiForgeryToken()
                         <a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a>
                     </form>

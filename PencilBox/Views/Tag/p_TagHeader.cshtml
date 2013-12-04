@@ -13,7 +13,8 @@
         </td>
 
         <td style="width:100px;">
-            <a href="~/Product/Add?tag=@Model.TagName" class="btn btn-link pull-right">+thêm sản phẩm</a>
+            <a href="@Url.RouteUrl("default", new { controller = "product", action = "add", tag=Model.TagName })" 
+                class="btn btn-link pull-right">+thêm sản phẩm</a>
             @*@if(Model.Type == PbData.Business.EHashtag_Type.Public)
             {
                 <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>

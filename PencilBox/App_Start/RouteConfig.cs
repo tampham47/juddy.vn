@@ -26,16 +26,16 @@ namespace PencilBox
             );
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Product", id = UrlParameter.Optional }
+                name: "Tag",
+                url: "{tag}/{category}",
+                defaults: new { controller = "Product", action = "Shop" }
             );
 
-            //routes.MapRoute(
-            //    name: "tagName",
-            //    url: "{tagName}",
-            //    defaults: new { controller = "Product", action = "Index" }
-            //);
+            routes.MapRoute(
+                name: "Default",
+                url: "ctrl/{controller}/{action}/{id}",
+                defaults: new { controller = "Product", id = UrlParameter.Optional }
+            );
         }
     }
 }
