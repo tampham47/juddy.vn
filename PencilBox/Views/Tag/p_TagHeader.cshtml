@@ -13,7 +13,7 @@
         </td>
 
         <td style="width:100px;">
-            <a href="@Url.RouteUrl("default", new { controller = "product", action = "add", tag=Model.TagName })" 
+            <a href="@Url.Action("add", "product", new { tag = Model.TagName })"
                 class="btn btn-link pull-right">+thêm sản phẩm</a>
             @*@if(Model.Type == PbData.Business.EHashtag_Type.Public)
             {
