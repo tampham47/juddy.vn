@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PbData.Entities.pb_UserProfile>
+
+@{
+    ViewBag.Title = "All user";
+    
+}
+
+
+<h3 style="background-color: #dadad6; margin-top: 40px; margin-left: 40px">All user current</h3>
+
+
+<ol class="round">
+
+    @foreach (var item in Model)
+    {
+         
+        <li><a href="#" style="color: red;">@Html.DisplayFor(modelItem => item.FullName) </a></li> 
+    }
+
+</ol>
+
+@{int countPage = ViewBag.CountPage;
+  int page = ViewBag.page;}
+<ul class="pagination" style="margin-left: 45px;">
+    <li><a href="/User/AllUser?page=@(page-1)">&laquo;</a></li>
+    @for (int i = 1; i <=countPage; i++)
+    {
+        if (i == page)
+        { ;<li class="active"><span>@i <span class="sr-only">(current)</span></span></li>}
+         else
+         {; <li><a href="/User/AllUser?page=@i">@i</a></li>}
+       
+    }
+    <li><a href="/User/AllUser?page=@(page+1)">&raquo;</a></li>
+</ul>
