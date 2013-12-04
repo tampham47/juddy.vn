@@ -160,7 +160,10 @@ namespace PbData.Business
         public List<pb_Product> GetByTags(string tags)
         {
             var tagList = bn_HashTag.DivTags(tags);
-
+            return GetByTags(tagList);
+        }
+        public List<pb_Product> GetByTags(List<string> tagList)
+        {
             var hashTags =
                 (
                     from get in db.pb_HashTag

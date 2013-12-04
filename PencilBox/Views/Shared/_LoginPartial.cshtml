@@ -13,15 +13,15 @@
         </button>
 
         <ul class="dropdown-menu pull-right" role="menu">
-            <li>@Html.ActionLink("Quản lý shop", "Index", "Tag")</li>
-            <li>@Html.ActionLink("Quản lý sản phẩm", "Own", "Product")</li>
-            <li>@Html.ActionLink("Quản lý đơn đặt hàng", "Salesman", "Order")</li>
+            <li>@Html.ActionLink("Quản lý shop", "index", "tag")</li>
+            <li>@Html.ActionLink("Quản lý sản phẩm", "own", "product")</li>
+            <li>@Html.ActionLink("Quản lý đơn đặt hàng", "salesman", "order")</li>
             <li class="divider"></li>
-            <li>@Html.ActionLink("Thông tin người dùng", "Index", "User")</li>
-            <li>@Html.ActionLink("Đơn đặt hàng", "Customer", "Order")</li>
-            <li>@Html.ActionLink("Sản phẩm yêu thích", "Favourite", "User")</li>
+            <li>@Html.ActionLink("Thông tin người dùng", "index", "user")</li>
+            <li>@Html.ActionLink("Đơn đặt hàng", "customer", "order")</li>
+            <li>@Html.ActionLink("Sản phẩm yêu thích", "favourite", "user")</li>
             <li>
-                <form action="~/Account/LogOff" id="logoutForm" method="post">
+                <form action="@Url.RouteUrl("default", new { controller = "account", action = "logoff" }) id="logoutForm" method="post">
                     @Html.AntiForgeryToken()
                 </form>
                 <a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a>
