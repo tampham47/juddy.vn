@@ -336,6 +336,7 @@
     <Content Include="Views\Shared\p_LightHeader.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AllUser.cshtml" />
+    <Content Include="Views\User\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

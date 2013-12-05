@@ -1,0 +1,56 @@
+﻿@model PbData.Entities.pb_UserProfile
+
+@{
+    ViewBag.Title = @Model.FullName;
+}
+
+
+<form class="form-horizontal" role="form" method="post">
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label">MembershipId: </label>
+        <div class="col-sm-9" style ="margin-top:6px;">
+            <label>@Model.MembershipId</label>
+        </div>
+    </div>
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label">Birth Day: </label>
+        <div class="col-sm-9" style ="margin-top:6px;">
+            <label>@Model.DateOfBirth</label>
+
+        </div>
+    </div>
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label">Date Created: </label>
+        <div class="col-sm-9" style ="margin-top:6px;">
+            @Model.DateCreated
+        </div>
+    </div>
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label">Date Updated: </label>
+        <div class="col-sm-9" style ="margin-top:6px;">
+            @Model.DateUpdated
+        </div>
+    </div>
+    <div class="form-group" style="margin-bottom: 0px">
+        <label for="textName" class="col-sm-3 control-label">Avatar: </label>
+        <div class="col-sm-9" style ="margin-top:6px;">
+            @Model.Avatar
+
+        </div>
+    </div>
+</form>
+
+
+<p style ="margin-left: 70px; margin-top:50px;">
+    @Html.ActionLink("Quay về danh sách", "AllUser")
+</p>

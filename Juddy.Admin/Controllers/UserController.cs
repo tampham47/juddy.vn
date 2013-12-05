@@ -33,6 +33,15 @@ namespace Juddy.Admin.Controllers
             var model = bnUser.GetListInPage(page, numberOfPage);
             return View(model);
         }
+        public ActionResult Detail(Guid? id)
+        {
+         
+            bn_UserProfile bnUser = new bn_UserProfile();
+            pb_UserProfile model = null;
+            if(id.HasValue)
+            model = bnUser.GetById(id.Value);
+            return View(model);
+        }
 
     }
 }
