@@ -45,6 +45,11 @@ namespace PbData.Entities
                 (Guid)userId, 
                 specialTag.ParseToText());
         }
+        public bool IsTag(string tagName)
+        {
+            bn_ProductTag bnPtag = new bn_ProductTag(ProductId);
+            return bnPtag.IsExists(tagName);
+        }
 
         public string HumanShortPrice()
         {

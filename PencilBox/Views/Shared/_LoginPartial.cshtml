@@ -21,7 +21,7 @@
             <li>@Html.ActionLink("Đơn đặt hàng", "customer", "order")</li>
             <li>@Html.ActionLink("Sản phẩm yêu thích", "favourite", "user")</li>
             <li>
-                <form action="@Url.RouteUrl("default", new { controller = "account", action = "logoff" }) id="logoutForm" method="post">
+                <form action="@Url.RouteUrl("default", new { controller = "account", action = "logoff" })" id="logoutForm" method="post">
                     @Html.AntiForgeryToken()
                 </form>
                 <a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a>

@@ -42,13 +42,10 @@ namespace PencilBox.Controllers
             return View(model);
         }
 
-        public ActionResult Shop(string tag, string category)
+        public ActionResult Category(string tag, string category)
         {
             bn_Product bnProduct = new bn_Product();
-            List<string> tagList = new List<string>();
-            tagList.Add(tag);
-            tagList.Add(category);
-            var model = bnProduct.GetByTags(tagList);
+            var model = bnProduct.GetByCategory(tag, category);
 
             ViewBag.TagName = tag;
             return View("Index", model);

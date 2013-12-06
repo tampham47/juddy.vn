@@ -183,6 +183,15 @@ namespace PbData.Business
 
             return result;
         }
+        public List<pb_Product> GetByCategory(string tag, string category)
+        {
+            var data = GetByTagName(tag);
+            List<pb_Product> result = new List<pb_Product>();
+            foreach (var item in data)
+                if (item.IsTag(category)) result.Add(item);
+
+            return result;
+        }
         public List<pb_Product> GetByUserAndTagId(Guid userId, Guid hashTagId)
         {
             var result = db.pb_Product_GetbyUserAndTag(

@@ -28,7 +28,7 @@ namespace PencilBox
             routes.MapRoute(
                 name: "Tag",
                 url: "{tag}/{category}",
-                defaults: new { controller = "Product", action = "Shop" }
+                defaults: new { controller = "Product", action = "Category" }
             );
 
             routes.MapRoute(
