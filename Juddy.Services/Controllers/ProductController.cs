@@ -25,6 +25,14 @@ namespace Juddy.Services.Controllers
             return bnProduct.GetByTagName(tag);
         }
 
+        [HttpGet]
+        public List<pb_Product> Category(string tag, string category)
+        {
+            bn_Product bnProduct = new bn_Product(isLazy: false);
+            return bnProduct.GetByCategory(tag, category);
+        }
+
+        [HttpPost]
         public bool Favourite(Guid productId, Guid userId)
         {
             return false;
