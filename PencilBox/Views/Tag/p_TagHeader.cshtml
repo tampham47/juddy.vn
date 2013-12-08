@@ -10,6 +10,10 @@
             <hgroup class="title">
                 <h1 style="font-weight:bold; margin-top:6px;">@Model.TagName.</h1>
             </hgroup>
+            @foreach (var item in @Model.GetCategories())
+            {
+                <a href="@Url.Action("Category", "Product", new { tag = Model.TagName, category = item.TagName })">#@item.TagName</a>@*<span>, </span>*@
+            }
         </td>
 
         <td style="width:100px;">
