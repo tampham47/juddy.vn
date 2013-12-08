@@ -8,7 +8,8 @@
             <img src="~/PencilBox_Data/TagIcons/@Model.Icon" width="60" style="padding:0px; margin:0px; margin-bottom:-4px" /></td>
         <td style="padding-left:8px">
             <hgroup class="title">
-                <h1 style="font-weight:bold; margin-top:6px;">@Model.TagName.</h1>
+                <h1 style="font-weight:bold; margin-top:6px;">
+                    <a href="/@Model.TagName">@Model.TagName.</a></h1>
             </hgroup>
             @foreach (var item in @Model.GetCategories())
             {
