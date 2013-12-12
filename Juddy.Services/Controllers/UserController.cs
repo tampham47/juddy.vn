@@ -22,5 +22,10 @@ namespace Juddy.Services.Controllers
             bn_UserProfile bnUser = new bn_UserProfile(isLazy: false);
             return bnUser.GetAll();
         }
+
+        public pb_UserProfile GetById(Guid userId)
+        {
+            return new pb_UserProfile();
+        }
     }
 }
