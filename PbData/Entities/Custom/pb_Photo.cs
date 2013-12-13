@@ -11,7 +11,7 @@ namespace PbData.Entities
 {
     public partial class pb_Photo
     {
-        private const string serverPath = @"E:\CodeLib\juddy.vn\PencilBox\PencilBox_Data\Images\";
+        private string serverPath = AppDomain.CurrentDomain.BaseDirectory + @"PencilBox_Data\Images\";
 
         //with = 230
         public string ImageFixW1()
