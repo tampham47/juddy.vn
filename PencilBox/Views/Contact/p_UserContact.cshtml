@@ -34,7 +34,7 @@
                 Model.UserProfile.UserId == ps_Membership.GetUser().UserId)
             {
             <td style="width:30px; padding-right:0px">
-                <a href="~/Contact/Delete?userContactId=@item.UserContactId" >
+                <a href="@Url.Action("delete", "contact", new { userContactId = @item.UserContactId })" >
                     <img src="~/Content/images/none-delete-light.png" width="30"
                         onmouseover="this.src='/Content/images/none-delete-red.png'"
                         onmouseout="this.src='/Content/images/none-delete-light.png'" /></a>

@@ -956,6 +956,7 @@
     <Content Include="Views\Shared\p_LightHeader.cshtml" />
     <Content Include="Views\Tag\_EditView.cshtml" />
     <Content Include="Views\Tag\Edit.cshtml" />
+    <Content Include="Views\Account\AdLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PencilBox_Data\Images\" />

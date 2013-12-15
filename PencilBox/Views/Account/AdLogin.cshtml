@@ -1,0 +1,62 @@
+﻿@model PencilBox.Models.LoginModel
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_LightLayout.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+
+    <table>
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.Email)</td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                <div>
+                    @Html.ValidationMessageFor(m => m.Email)</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">@Html.LabelFor(m => m.Password)</td>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+                <div>
+                    @Html.ValidationMessageFor(m => m.Password)</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"></td>
+            <td>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"></td>
+            <td>
+                <input type="submit" value="Log in" class="modern-button theme-a width120" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label"></td>
+            <td>
+                <p style="margin-top:50px">@Html.ActionLink("Register", "Register", null, new { @class = "modern-button theme-b width80" }) if you don't have an account.</p>
+            </td>
+        </tr>
+    </table>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

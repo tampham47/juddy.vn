@@ -2,13 +2,12 @@
 
 @{
     ViewBag.Title = "Địa điểm";
-    //Layout = "~/Views/Shared/_UserLayout.cshtml";
     Layout = null;
 }
 
 <div>
     <div style="float:right; display:inline-block">
-        <a href="~/Location/New" >
+        <a href="@Url.Action("new", "location")" >
             <img src="~/Content/images/base-add-light.png" width="30" style="margin-top:7px"
                 onmouseover="this.src='/Content/images/base-add-dark.png'"
                 onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
@@ -38,18 +37,16 @@
     </td>
     
     <td style="width:90px; padding-right:0px">
-        <a href="/Location/Edit?locationId=@item.LocationId" class="LightMetroButton" style="padding:8px 0px">
+        <a href="@Url.Action("delete", "location", new { locationId = item.LocationId })" 
+            class="LightMetroButton" style="padding:8px 0px">
             Edit</a></td>
 
     <td style="width:70px; padding-right:0px">
-        <a href="/Location/Delete?locationId=@item.LocationId" class="LightMetroButton" style="padding:8px 0px">
+        <a href="@Url.Action("delete", "location", new { locationId = item.LocationId })" 
+            class="LightMetroButton" style="padding:8px 0px">
             Delete
         </a>
     </td>
-
-    @*<td style="width:120px">
-        <a href="/Location/SetCurrentLocation?locationId=@item.LocationId" class="GMetro-SmallButton">Current Location</a>
-    </td>*@
 </tr>
 }
 </table>

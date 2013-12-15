@@ -24,7 +24,7 @@
             item.UserId == ps_Membership.GetUser().UserId)
         {
         <td style="width:30px; padding-right:0px">
-            <a href="~/Location/Delete?locationId=@item.LocationId" >
+            <a href="@Url.Action("delete", "location", new { locationId = item.LocationId })" >
                 <img src="~/Content/images/none-delete-light.png" width="30"
                     onmouseover="this.src='/Content/images/none-delete-red.png'"
                     onmouseout="this.src='/Content/images/none-delete-light.png'" /></a>

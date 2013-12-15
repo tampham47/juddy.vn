@@ -8,7 +8,7 @@
 <div>
     <div>
         <div style="float:right; display:inline-block">
-            <a href="~/User/Edit" >
+            <a href="@Url.Action("edit", "user")" >
                 <img src="~/Content/images/base-edit-light.png" width="30"
                     onmouseover="this.src='/Content/images/base-edit-dark.png'"
                     onmouseout="this.src='/Content/images/base-edit-light.png'" /></a>
@@ -26,7 +26,7 @@
 <div class="border-top">
     <div>
         <div style="float:right; display:inline-block">
-            <a href="~/Contact/Add" >
+            <a href="@Url.Action("add", "contact")" >
                 <img src="~/Content/images/base-add-light.png" width="30"
                     onmouseover="this.src='/Content/images/base-add-dark.png'"
                     onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
@@ -43,7 +43,7 @@
 <div class="border-top">
     <div>
         <div style="float:right; display:inline-block">
-            <a href="~/Location/New" >
+            <a href="@Url.Action("new", "location")" >
                 <img src="~/Content/images/base-add-light.png" width="30"
                     onmouseover="this.src='/Content/images/base-add-dark.png'"
                     onmouseout="this.src='/Content/images/base-add-light.png'" /></a>
