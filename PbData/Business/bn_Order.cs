@@ -10,12 +10,13 @@ namespace PbData.Business
     {
         private pb_Entities db = new pb_Entities();
 
-        public bn_Order(pb_Entities connection = null)
+        public bn_Order(pb_Entities connection = null, bool isLazy = true)
         {
             if (connection != null)
             {
                 db = connection;
             }
+            db.Configuration.LazyLoadingEnabled = isLazy;
         }
         public int UpdateStatus(Guid orderId, byte status)
         {

@@ -10,12 +10,13 @@ namespace PbData.Business
     {
         private pb_Entities db = new pb_Entities();
 
-        public bn_Location(pb_Entities connection = null)
+        public bn_Location(pb_Entities connection = null, bool isLazy = true)
         {
             if (connection != null)
             {
                 db = connection;
             }
+            db.Configuration.LazyLoadingEnabled = isLazy;
         }
 
         public Guid Create(Guid userId, double latitude, double longitude, string address)

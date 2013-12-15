@@ -13,12 +13,13 @@ namespace PbData.Business
         private const int height = 400;
 
         private pb_Entities db = new pb_Entities();
-        public bn_Photo(pb_Entities connection = null)
+        public bn_Photo(pb_Entities connection = null, bool isLazy = true)
         {
             if (connection != null)
             {
                 db = connection;
             }
+            db.Configuration.LazyLoadingEnabled = isLazy;
         }
 
         public Guid Create(Nullable<System.Guid> userId, Nullable<System.Guid> productId, string imagePath)

@@ -19,12 +19,13 @@ namespace PbData.Business
         //type: publish 1, private 0, system 2
 
         private pb_Entities db = new pb_Entities();
-        public bn_HashTag(pb_Entities connection = null)
+        public bn_HashTag(pb_Entities connection = null, bool isLazy = true)
         {
             if (connection != null)
             {
                 db = connection;
             }
+            db.Configuration.LazyLoadingEnabled = isLazy;
         }
 
         public static List<string> DivTags(string tags)
