@@ -6,30 +6,37 @@ using System.Net.Http;
 using System.Web.Http;
 using PbData.Business;
 using PbData.Entities;
+using Juddy.Services.Models;
 
 namespace Juddy.Services.Controllers
 {
     public class ProductController : ApiController
     {
         [HttpGet]
-        public List<pb_Product> GetAll()
+        public List<sv_Product> GetAll()
         {
-            bn_Product bnProduct = new bn_Product(isLazy: false);
-            return bnProduct.GetAll();
+            bn_Product bnProduct = new bn_Product();
+            return bnProduct
+                .GetAll().Select(m => new sv_Product(m))
+                .ToList();
         }
 
         [HttpGet]
-        public List<pb_Product> Filter(string tag)
+        public List<sv_Product> Filter(string tag)
         {
-            bn_Product bnProduct = new bn_Product(isLazy: false);
-            return bnProduct.GetByTagName(tag);
+            bn_Product bnProduct = new bn_Product();
+            return bnProduct.GetByTagName(tag)
+                .Select(m => new sv_Product(m))
+                .ToList();
         }
 
         [HttpGet]
-        public List<pb_Product> Category(string tag, string category)
+        public List<sv_Product> Category(string tag, string category)
         {
-            bn_Product bnProduct = new bn_Product(isLazy: false);
-            return bnProduct.GetByCategory(tag, category);
+            bn_Product bnProduct = new bn_Product();
+            return bnProduct.GetByCategory(tag, category)
+                .Select(m => new sv_Product(m))
+                .ToList();
         }
 
         [HttpPost]
