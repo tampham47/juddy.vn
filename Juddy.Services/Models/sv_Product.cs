@@ -25,7 +25,7 @@ namespace Juddy.Services.Models
             Status = model.Status;
             Views = model.Views;
 
-            var cover = model.GetCoverImage();
+            var cover = model.CoverImage;
             if (cover != null)
             {
                 ImageW1 = serverPath + cover.ImageFixW1();
