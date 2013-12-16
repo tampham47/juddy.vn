@@ -25,12 +25,13 @@ namespace Juddy.Services.Models
             Status = model.Status;
             Views = model.Views;
 
-            var cover = model.CoverImage;
-            if (cover != null)
-            {
-                ImageW1 = serverPath + cover.ImageFixW1();
-                ImageH1 = serverPath + cover.ImageFixH1();
-            }
+            Cover = new sv_Photo(model.CoverImage);
+
+            bn_Photo bnPhoto = new bn_Photo();
+            Photos = bnPhoto.GetByProductId(ProductId)
+                .Select(m => new sv_Photo(m))
+                .ToList();
+
         }
 
         public System.Guid ProductId { get; set; }
@@ -46,7 +47,7 @@ namespace Juddy.Services.Models
         public int Status { get; set; }
         public long Views { get; set; }
 
-        public string ImageW1 { get; set; }
-        public string ImageH1 { get; set; }
+        public List<sv_Photo> Photos { get; set; }
+        public sv_Photo Cover { get; set; }
     }
 }
