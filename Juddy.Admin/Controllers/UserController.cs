@@ -22,8 +22,6 @@ namespace Juddy.Admin.Controllers
         public ActionResult AllUser(int page = 1)
         {         
             bn_UserProfile bnUser = new bn_UserProfile();
-
-
             int numberOfPage = 24;
             ViewBag.CountPage = (bnUser.GetCountAll() / numberOfPage)+1;
             page = page > 0 ? page : 1;
@@ -34,8 +32,7 @@ namespace Juddy.Admin.Controllers
             return View(model);
         }
         public ActionResult Detail(Guid? id)
-        {
-         
+        {         
             bn_UserProfile bnUser = new bn_UserProfile();
             pb_UserProfile model = null;
             if(id.HasValue)

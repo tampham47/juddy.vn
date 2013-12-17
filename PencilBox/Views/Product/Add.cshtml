@@ -1,7 +1,7 @@
 ﻿@model PencilBox.Models.ps_ProductCreate
 
 @{
-    ViewBag.Title = "Đăng sản phẩm";
+    ViewBag.Title = "Thêm sản phẩm";
     //Layout = "~/Views/Shared/_OrderLayout.cshtml";
 }
 
@@ -82,7 +82,7 @@
        $(document).ready(function () {
            $("#upload_files").kendoUpload({
                async: {
-                   saveUrl: "/ctrl/upload/save",
+                   saveUrl: "/Upload/Save",
                    autoUpload: true
                }
            });

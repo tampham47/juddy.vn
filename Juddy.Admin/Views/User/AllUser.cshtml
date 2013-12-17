@@ -7,13 +7,10 @@
 <h3 style="background-color: #dadad6; margin-top: 40px; margin-left: 40px">All user current</h3>
 
 <ol class="round">
-
     @foreach (var item in Model)
     {      
-      
         <li><a href ="/User/Detail/@item.UserId" style ="color:red;"> @item.FullName</a></li>
     }
-
 </ol>
 
 @{int countPage = ViewBag.CountPage;

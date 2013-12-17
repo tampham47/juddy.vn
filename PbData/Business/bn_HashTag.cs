@@ -176,5 +176,22 @@ namespace PbData.Business
 
             return result;
         }
+
+        //Than
+        public List<pb_HashTag> GetAllTag()
+        {
+            return db.pb_HashTag.ToList();
+        }
+        public List<pb_HashTag> GetListInPage(int page, int count = 24)
+        {
+            int numSkip = (page - 1) * count;
+            return db.pb_HashTag.ToList().Skip(numSkip).Take(count).ToList();
+
+        }
+        public int GetCountAll()
+        {
+            return db.pb_HashTag.Count();
+        }
+
     }
 }

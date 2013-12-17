@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PbData.Entities.pb_HashTag>
+
+@{
+    ViewBag.Title = "All Tag";
+}
+<h2>All Tag</h2>
+
+<ol class="round">
+    @foreach (var item in Model)
+    {      
+        <li><a href ="#" style ="color:red;"> @item.TagName</a></li>
+    }
+</ol>
+
+@{int countPage = ViewBag.CountPage;
+  int page = ViewBag.page;}
+<ul class="pagination" style="margin-left: 45px;">
+    <li><a href="/Tag/AllTag?page=@(page - 1)">&laquo;</a></li>
+    @for (int i = 1; i <= countPage; i++)
+    {
+        if (i == page){;<li class="active"><span>@i <span class="sr-only">(current)</span></span></li>}  
+        else{;<li><a href="/Tag/AllTag?page=@i">@i</a></li>}
+    }
+    <li><a href="/Tag/AllTag?page=@(page + 1)">&raquo;</a></li>
+</ul>
