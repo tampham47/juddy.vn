@@ -1,0 +1,47 @@
+﻿@{Layout = null;}
+
+<header>
+    <div class="content-wrapper relative">
+        <table style="margin-top:1px">
+            <tr>
+                <td style="width:300px">
+                    <div class="input-group" style="margin-left:-4px">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" 
+                                style="margin-right:0px; width:80px; background-color:#ea1943; border-color:#ea1943; color:white; font-size:16px; padding: 1px 4px 3px 4px;">juddy</button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/men">Thời trang nam</a></li>
+                                <li><a href="/women">Thời trang nữ</a></li>
+                                <li><a href="/kid">Thời trang trẻ nhỏ</a></li>
+                                <li><a href="/handmade">Đồ handmade</a></li>
+
+                                <li role="presentation" class="divider"></li>
+                                <li><a href="/">Trang chủ</a></li>
+                            </ul>
+                        </div>
+                        @using (Html.BeginForm("Filter","Product"))
+                        {
+                            <input type="text" name="request" value="@ViewBag.FilterRequest"
+                                class="form-control input-sm" placeholder="#tags" 
+                                style="background-color:#727268; border-color:#68685e; color:white; font-size:14px; outline:none">
+                        }
+                        
+                    </div>
+                </td>
+                <td style="width:500px"></td>
+                <td style="padding-right:0px; width:40px">
+                    <div style="height:30px; width:70px; color:white; text-align:center">
+                        <a href="@Url.Action("add", "tag")" style="color:white; text-decoration: none; line-height:30px;">
+                            tạo shop
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="pull-right" style="margin-right:-4px">
+                    @*@Html.Partial("_LoginPartial")*@
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>

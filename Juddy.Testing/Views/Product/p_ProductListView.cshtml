@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PbData.Entities.pb_Product>
+
+@{
+    Layout = null;
+}
+
+<div id="main" style="background-color:#dadad6; margin-left:-2px">
+    <ul id="tiles">
+        @{string coverImage = "";}
+        @foreach (var item in Model)
+        {
+            if (@item.pb_Photo.Count > 0)
+            {
+                //coverImage = item.CoverImage.ImagePath;
+                coverImage = item.CoverImage.ImageFixW1();
+                System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/PencilBox_Data/Images/") + coverImage);
+            <li>
+                <div>
+                    <a href="@Url.Action("detail", "product", new { productId = item.ProductId })">
+                        <img src="~/PencilBox_Data/Images/@coverImage" 
+                            width="230" 
+                            height="@((230 * image.Height)/image.Width)" />
+                    </a>
+                    <div class="theme-j" style="padding:6px 4px;">
+                        <b style="float:right; color:#ea1943;">@item.HumanShortPrice()</b>
+
+                        <a href="~/Product/Detail?productId=@item.ProductId">@item.DisplayName()</a>
+                    </div>
+                </div>
+            </li>
+            }
+        }
+    </ul>
+</div>

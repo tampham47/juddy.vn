@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>juddy/@ViewBag.Title</title>
+    <link href="~/Content/images/allapp-icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    @RenderSection("headercontent", required: false)
+</head>
+<body>
+    @Html.Partial("p_LightHeader")
+
+    <div>
+        @RenderSection("featured", required: false)
+    </div>
+
+    <div id="body" >
+        @*@RenderSection("featured", required: false)*@
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section> 
+    </div>
+
+    @Html.Partial("p_Footer")
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=298089496948422";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+</html>

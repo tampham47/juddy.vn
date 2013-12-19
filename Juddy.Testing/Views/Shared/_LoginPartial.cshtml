@@ -1,0 +1,42 @@
+﻿@if (Request.IsAuthenticated) {
+    
+    @*@Html.ActionLink(ps_Membership.GetUser().FullName, "Index", "User",
+        routeValues: null,
+        htmlAttributes: new
+        {
+            @class = "btn btn-info btn-sm pull-right"
+        })*@
+    
+    <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown">
+            @ps_Membership.GetUser().FullName
+        </button>
+
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li>@Html.ActionLink("Quản lý shop", "index", "tag")</li>
+            <li>@Html.ActionLink("Quản lý sản phẩm", "own", "product")</li>
+            <li>@Html.ActionLink("Quản lý đơn đặt hàng", "salesman", "order")</li>
+            <li class="divider"></li>
+            <li>@Html.ActionLink("Thông tin người dùng", "index", "user")</li>
+            <li>@Html.ActionLink("Đơn đặt hàng", "customer", "order")</li>
+            <li>@Html.ActionLink("Sản phẩm yêu thích", "favourite", "user")</li>
+            <li>
+                <form action="@Url.RouteUrl("default", new { controller = "account", action = "logoff" })" id="logoutForm" method="post">
+                    @Html.AntiForgeryToken()
+                </form>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a>
+            </li>
+        </ul>
+    </div>
+
+} else {
+    @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
+
+    @*<ul>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>*@
+    @*<div class="theme-f" style="height:30px; color:white; font-weight:bold; line-height:30px; text-align:right; width:auto; text-align:center">
+        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", style="color:white" })
+    </div>*@
+}

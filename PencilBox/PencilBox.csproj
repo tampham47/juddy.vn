@@ -246,6 +246,7 @@
     <Content Include="Content\images\shopping-cart.png" />
     <Content Include="Content\images\tool-Heart.png" />
     <Content Include="Content\images\tool-Shape-Heart.png" />
+    <Content Include="Content\juddy\controller.js" />
     <Content Include="Content\kendoui\js\cultures\kendo.culture.af-ZA.min.js" />
     <Content Include="Content\kendoui\js\cultures\kendo.culture.af.min.js" />
     <Content Include="Content\kendoui\js\cultures\kendo.culture.am-ET.min.js" />

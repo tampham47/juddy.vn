@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juddy.Admin", "Juddy.Admin\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juddy.Services", "Juddy.Services\Juddy.Services.csproj", "{9501A8F7-8B7B-4C76-AC39-019FFDE5AE2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juddy.Testing", "Juddy.Testing\Juddy.Testing.csproj", "{10550325-0BA2-4EB8-8E7E-4FEEE3B1A85E}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -35,6 +37,10 @@ Global
 		{9501A8F7-8B7B-4C76-AC39-019FFDE5AE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9501A8F7-8B7B-4C76-AC39-019FFDE5AE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9501A8F7-8B7B-4C76-AC39-019FFDE5AE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10550325-0BA2-4EB8-8E7E-4FEEE3B1A85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10550325-0BA2-4EB8-8E7E-4FEEE3B1A85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10550325-0BA2-4EB8-8E7E-4FEEE3B1A85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10550325-0BA2-4EB8-8E7E-4FEEE3B1A85E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,116 @@
+﻿@model PencilBox.Models.ps_ProductCreate
+
+<div class="form-group" style="margin-bottom:0px">
+    <label for="textName" class="col-sm-3 control-label"></label>
+    <div class="col-sm-9">
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+            <h2>@ViewBag.Message</h2>
+        </hgroup>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="productName" class="col-sm-3 control-label">tên sản phẩm</label>
+    <div class="col-sm-9">
+        @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-control", id="productName", placeholder="tên sản phẩm" })
+        @Html.ValidationMessageFor(m => m.Product.Name)
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="price" class="col-sm-3 control-label">giá</label>
+    <div class="col-sm-9">
+        @Html.TextBoxFor(m => m.Product.Price, new { @class = "form-control", id="price", placeholder="giá" })
+        @Html.ValidationMessageFor(m => m.Product.Price)
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="upload_files" class="col-sm-3 control-label">hình ảnh</label>
+    <div class="col-sm-9">
+        @foreach (var photo in Model.ProductPhotos)
+        {
+            <img src="~/PencilBox_Data/Images/@photo.PhotoPath" height="225" data-PhotoId="@photo.PhotoId" />
+        }
+        <input name="attachments" id="upload_files" type="file" />
+    </div>
+</div>
+    
+<div class="form-group">
+    <label for="editor" class="col-sm-3 control-label">mô tả sản phẩm</label>
+    <div class="col-sm-9">
+        @Html.TextAreaFor(m => m.Product.Description, new { @class = "form-control", rows = "5" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="tags" class="col-sm-3 control-label">tags</label>
+    <div class="col-sm-9">
+        @Html.TextBoxFor(m => m.Tags, new { @class = "form-control", id="tags", placeholder="tags" })
+        @Html.ValidationMessageFor(m => m.Tags)
+    </div>
+</div>
+<div class="form-group">
+    <label for="description" class="col-sm-3 control-label"></label>
+    <div class="col-sm-9">
+        @Html.HiddenFor(m => m.Product.ProductId)
+        @Html.HiddenFor(m => m.Product.UserId)
+
+        <button type="submit" class="btn btn-success">đăng sản phẩm</button>
+        <a href="~/@Model.Tags.Replace("#", "")" class="btn btn-default">hủy</a>
+    </div>
+</div>
+
+@*
+<table>
+    <tr>
+        <td style="text-align:right; width:120px">tên sản phẩm</td>
+        <td>
+            @Html.TextBoxFor(m => m.Product.Name)
+            @Html.ValidationMessageFor(m => m.Product.Name)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">giá</td>
+        <td>
+            @Html.TextBoxFor(m => m.Product.Price)
+            @Html.ValidationMessageFor(m => m.Product.Price)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">hình ảnh</td>
+        <td>
+            @foreach (var photo in Model.ProductPhotos)
+            {
+                <img src="~/PencilBox_Data/Images/@photo.PhotoPath" height="225" data-PhotoId="@photo.PhotoId" />
+            }
+            <input name="attachments" id="upload_files" type="file" />
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">mô tả sản phẩm</td>
+        <td>
+            <textarea id="editor" name="@Html.NameFor(m=>m.Product.Description)" rows="10" cols="30" style="width:620px;height:300px">
+                @Html.Raw(Model.Product.Description)
+            </textarea>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">Tags</td>
+        <td>
+            @Html.TextBoxFor(m => m.Tags, new { style = "width:606px" })
+            @Html.ValidationMessageFor(m => m.Tags)
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right"></td>
+        <td>
+            @Html.HiddenFor(m => m.Product.ProductId)
+            @Html.HiddenFor(m => m.Product.UserId)
+            <button type="submit" class="btn btn-success">đăng sản phẩm</button>
+            <a href="~/@Model.Tags.Replace("#", "")" class="btn btn-default">hủy</a>
+        </td>
+    </tr>
+</table>
+*@

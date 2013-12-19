@@ -7,19 +7,15 @@
 /PbData/obj
 /PbData/*.config
 
-/Editing/bin
-/Editing/obj
-/Editing/*.config
-
-/Testing/bin
-/Testing/obj
-/Testing/*.config
-
 /Juddy.Admin/bin
 /Juddy.Admin/obj
 
 /Juddy.Services/bin
 /Juddy.Services/obj
+
+/Juddy.Testing/PencilBox_Data
+/Juddy.Testing/bin
+/Juddy.Testing/obj
 
 PencilBox.v11.suo
 PencilBox.v11.suo.BACKUP.8972.suo
