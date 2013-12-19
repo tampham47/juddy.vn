@@ -64,6 +64,18 @@ namespace PencilBox.Controllers
         }
 
         [Authorize]
+        public ActionResult WishList()
+        {
+            bn_Product bnProduct = new bn_Product();
+            var model = bnProduct.GetByUserAndTagName(
+                ps_Membership.GetUser().UserId,
+                ESpecialTag.Favourite.ParseToText());
+
+            ViewBag.TagName = "wish list";
+            return View("Index", model);
+        }
+
+        [Authorize]
         public ActionResult Add(string tag)
         {
             ps_ProductCreate model = new ps_ProductCreate();
