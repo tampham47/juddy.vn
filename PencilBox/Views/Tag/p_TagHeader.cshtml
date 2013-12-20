@@ -18,10 +18,12 @@
                     </span>
                 </h1>
             </hgroup>
+            <div style="margin-top:-10px">
             @foreach (var item in @Model.GetCategories())
             {
                 <a href="@Url.Action("Category", "Product", new { tag = Model.TagName, category = item.TagName })">#@item.TagName</a>@*<span>, </span>*@
             }
+            </div>
         </td>
 
         <td style="width:100px;">
