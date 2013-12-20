@@ -9,7 +9,14 @@
         <td style="padding-left:8px">
             <hgroup class="title">
                 <h1 style="font-weight:bold; margin-top:6px;">
-                    <a href="/@Model.TagName">@Model.TagName.</a></h1>
+                    <a href="/@Model.TagName">@Model.TagName.</a>
+
+                    <span class="fb-like"
+                        data-href="@ps_ServerHelper.Domain/@Model.TagName"
+                        data-width="100" data-layout="button_count"
+                        data-show-faces="false" data-send="false">
+                    </span>
+                </h1>
             </hgroup>
             @foreach (var item in @Model.GetCategories())
             {
@@ -19,27 +26,10 @@
 
         <td style="width:100px;">
             <a href="@Url.Action("add", "product", new { tag = Model.TagName })"
-                class="btn btn-link pull-right">đăng sản phẩm</a>
-            @*@if(Model.Type == PbData.Business.EHashtag_Type.Public)
-            {
-                <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>
-            } else
-            {
-                if(ps_Membership.IsCurrentUser(Model.UserId))
-                {
-                    <a href="~/Product/Add?tag=@Model.TagName" class="modern-button theme-b">+Add</a>
-                }
-            }*@
+                class="btn btn-success pull-right">
+                <span class="glyphicon glyphicon-plus"></span>
+                Đăng sản phẩm</a>
         </td>
-
-        <td style="width:100px; text-align:right; padding-top:6px">
-            <div class="fb-like"
-                data-href="@ps_ServerHelper.Domain/@Model.TagName"
-                data-width="100" data-layout="button_count"
-                data-show-faces="false" data-send="false">
-            </div>
-        </td>
-
     </tr>
 </table>
 
