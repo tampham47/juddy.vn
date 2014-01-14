@@ -1,0 +1,14 @@
+1/ Quản lý hết những gì có trong database
+-- Người dùng
+-- Sản phẩm
+-- Hashtag
+Tính năng:
+-- Show list: phân trang
+-- Edit
+-- Show detail
+
+Phân trang chưa có -> viết thêm. 
+Còn lại: có hết trong PbData
+
+-- Comment mỗi hàm: author, data,...
+-- Dùng bootstrap
