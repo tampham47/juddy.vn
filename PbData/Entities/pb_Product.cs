@@ -33,6 +33,7 @@ namespace PbData.Entities
         public string HumanCode { get; set; }
         public int Status { get; set; }
         public long Views { get; set; }
+        public int Amount { get; set; }
     
         public virtual ICollection<pb_Comment> pb_Comment { get; set; }
         public virtual ICollection<pb_Photo> pb_Photo { get; set; }

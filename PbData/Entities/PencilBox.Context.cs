@@ -1050,5 +1050,51 @@ namespace PbData.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_Product_IncrViews", idParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> pb_Product_Create2(Nullable<System.Guid> productId, Nullable<System.Guid> userId, string name, Nullable<double> price, string description, string humanCode, Nullable<int> amount)
+        {
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(System.Guid));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(System.Guid));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("description", description) :
+                new ObjectParameter("description", typeof(string));
+    
+            var humanCodeParameter = humanCode != null ?
+                new ObjectParameter("humanCode", humanCode) :
+                new ObjectParameter("humanCode", typeof(string));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("amount", amount) :
+                new ObjectParameter("amount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_Product_Create2", productIdParameter, userIdParameter, nameParameter, priceParameter, descriptionParameter, humanCodeParameter, amountParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pb_Product_UpdateAmount(Nullable<System.Guid> productId, Nullable<int> amount)
+        {
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(System.Guid));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("amount", amount) :
+                new ObjectParameter("amount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pb_Product_UpdateAmount", productIdParameter, amountParameter);
+        }
     }
 }

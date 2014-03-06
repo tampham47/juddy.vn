@@ -53,6 +53,23 @@ namespace PbData.Business
             else
                 return Guid.Empty;
         }
+        public Guid Create2(Nullable<System.Guid> userId, string name, Nullable<double> price, string description, int amount)
+        {
+            var productId = Guid.NewGuid();
+            int re = (int)db.pb_Product_Create2(
+                productId,
+                userId,
+                name,
+                price,
+                description,
+                bn_HumanCode.GetCode(),
+                amount).Single();
+
+            if (re >= 0)
+                return productId;
+            else
+                return Guid.Empty;
+        }
         public int Update(Guid productId, string name, double price, string description)
         {
             var re = (int)db.pb_Product_Update(
@@ -60,6 +77,14 @@ namespace PbData.Business
                 name,
                 price,
                 description).Single();
+
+            return re;
+        }
+        public int UpdateAmount(Guid productId, int amount)
+        {
+            var re = (int)db.pb_Product_UpdateAmount(
+                productId,
+                amount).Single();
 
             return re;
         }

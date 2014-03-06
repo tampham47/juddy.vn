@@ -181,6 +181,7 @@
       <DependentUpon>PencilBox.tt</DependentUpon>
     </Compile>
     <Compile Include="Extensions\AttributesHelper.cs" />
+    <Compile Include="Payment\WebMoney.cs" />
     <Compile Include="Utility\bn_Email.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

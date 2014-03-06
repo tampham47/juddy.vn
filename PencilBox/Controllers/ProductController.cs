@@ -24,7 +24,7 @@ namespace PencilBox.Controllers
             }
         }
 
-        public ActionResult Index(Guid? tagId, string tagName = "pbox")
+        public ActionResult Index(Guid? tagId, string tagName = "juddy")
         {
             bn_Product bnProduct = new bn_Product();
             List<pb_Product> model = new List<pb_Product>();

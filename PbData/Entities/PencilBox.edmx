@@ -167,6 +167,7 @@
           <Property Name="DateUpdated" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Views" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="pb_ProductTag">
           <Key>
@@ -507,6 +508,15 @@
           <Parameter Name="description" Type="ntext" Mode="In" />
           <Parameter Name="humanCode" Type="char" Mode="In" />
         </Function>
+        <Function Name="pb_Product_Create2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="price" Type="float" Mode="In" />
+          <Parameter Name="description" Type="ntext" Mode="In" />
+          <Parameter Name="humanCode" Type="char" Mode="In" />
+          <Parameter Name="amount" Type="int" Mode="In" />
+        </Function>
         <Function Name="pb_Product_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
         </Function>
@@ -620,6 +630,10 @@
         <Function Name="tp_HashTag_GetbyUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="type" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="pb_Product_UpdateAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="zxbsnudw_juddy_dev">
+          <Parameter Name="productId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="amount" Type="int" Mode="In" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -934,6 +948,19 @@
           </FunctionImport>
           <FunctionImport Name="pb_Product_IncrViews" ReturnType="Collection(Int32)">
           <Parameter Name="id" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_Create2" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="userId" Mode="In" Type="Guid" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Double" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="humanCode" Mode="In" Type="String" />
+            <Parameter Name="amount" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pb_Product_UpdateAmount" ReturnType="Collection(Int32)">
+            <Parameter Name="productId" Mode="In" Type="Guid" />
+            <Parameter Name="amount" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pb_Location_GetbyId_Result">
@@ -1257,6 +1284,7 @@
           <Property Type="Int32" Name="Status" Nullable="false" />
           <NavigationProperty Name="pb_UserProfile" Relationship="PencilBoxModel.FK_pb_Product_pb_UserProfile" FromRole="pb_Product" ToRole="pb_UserProfile" />
           <Property Type="Int64" Name="Views" Nullable="false" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
         </EntityType>
         <Association Name="FK_pb_Comment_pb_Product">
           <End Type="PencilBoxModel.pb_Product" Role="pb_Product" Multiplicity="1" />
@@ -1599,6 +1627,7 @@
           <EntitySetMapping Name="pb_Product">
             <EntityTypeMapping TypeName="PencilBoxModel.pb_Product">
               <MappingFragment StoreEntitySet="pb_Product">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="HumanCode" ColumnName="HumanCode" />
@@ -1672,6 +1701,8 @@
           <FunctionImportMapping FunctionImportName="pb_Photo_UpdateImageW1" FunctionName="PencilBoxModel.Store.pb_Photo_UpdateImageW1" />
           <FunctionImportMapping FunctionImportName="pb_HashTag_IncrViews" FunctionName="PencilBoxModel.Store.pb_HashTag_IncrViews" />
           <FunctionImportMapping FunctionImportName="pb_Product_IncrViews" FunctionName="PencilBoxModel.Store.pb_Product_IncrViews" />
+          <FunctionImportMapping FunctionImportName="pb_Product_Create2" FunctionName="PencilBoxModel.Store.pb_Product_Create2" />
+          <FunctionImportMapping FunctionImportName="pb_Product_UpdateAmount" FunctionName="PencilBoxModel.Store.pb_Product_UpdateAmount" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

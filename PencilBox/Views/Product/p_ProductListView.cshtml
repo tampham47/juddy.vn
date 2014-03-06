@@ -16,11 +16,13 @@
                 System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/PencilBox_Data/Images/") + coverImage);
             <li>
                 <div>
+                    <div style="height:230px; overflow:hidden">
                     <a href="@Url.Action("detail", "product", new { productId = item.ProductId })">
                         <img src="~/PencilBox_Data/Images/@coverImage" 
-                            width="230" 
-                            height="@((230 * image.Height)/image.Width)" />
+                            width="230" />
+                            @*height="@((230 * image.Height)/image.Width)" />*@
                     </a>
+                    </div>
                     <div class="theme-j" style="padding:6px 4px;">
                         <b style="float:right; color:#ea1943;">@item.HumanShortPrice()</b>
 
