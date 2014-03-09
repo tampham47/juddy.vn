@@ -4,7 +4,7 @@
     Layout = null;
 }
 
-<div id="main" style="background-color:#dadad6; margin-left:-2px">
+@*<div id="main" style="background-color:#dadad6; margin-left:-2px">
     <ul id="tiles">
         @{string coverImage = "";}
         @foreach (var item in Model)
@@ -13,14 +13,14 @@
             {
                 //coverImage = item.CoverImage.ImagePath;
                 coverImage = item.CoverImage.ImageFixW1();
-                System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/PencilBox_Data/Images/") + coverImage);
+                //System.Drawing.Image image = System.Drawing.Image.FromFile(Server.MapPath("~/PencilBox_Data/Images/") + coverImage);
             <li>
                 <div>
                     <div style="height:230px; overflow:hidden">
                     <a href="@Url.Action("detail", "product", new { productId = item.ProductId })">
                         <img src="~/PencilBox_Data/Images/@coverImage" 
                             width="230" />
-                            @*height="@((230 * image.Height)/image.Width)" />*@
+                            
                     </a>
                     </div>
                     <div class="theme-j" style="padding:6px 4px;">
@@ -33,4 +33,94 @@
             }
         }
     </ul>
+</div>*@
+
+<div class="row" style="margin-top:2px">
+    @{int i = 0;}
+
+    @foreach (var item in Model)
+    {
+        i++;
+        if (@item.pb_Photo.Count > 0)
+        {
+            <div class="col-md-3" onclick="product_click(this)">
+                <div class="thumbnail" style="margin-bottom:0px">
+                    <div style="height:230px; overflow:hidden">
+                        <a href="#">
+                            <img src="~/PencilBox_Data/Images/@item.CoverImage.ImageFixW1()" width="230" />
+                        </a>
+                    </div>
+
+                    <div class="theme-j" style="padding:4px; padding-bottom:0px; overflow:hidden">
+                        <div style="width:170px; overflow:hidden; display:inline-block">
+                            <a href="@Url.Action("detail", "product", new { productId = item.ProductId })"
+                                style="white-space:nowrap; text-decoration:none">@item.Name</a>
+                        </div>
+                        <b style="float:right; color:#ea1943;">@item.HumanShortPrice()</b>
+                    </div>
+                </div>
+            </div>
+        
+            @*if (i % 4 == 0)
+            {
+                <div class="p-detail col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="height:520px; background-color:gray">
+                                <p>bài thơ đầu anh viết tặng em</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }*@
+        }
+    }
 </div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="col-md-4 col-md-offset-4" style="padding:0px 30px">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                @if (ViewBag.Back == "Disable")
+                {
+                    <a href="@Url.Action("List", "Product", new {
+                            tagName = ViewBag.TagName, 
+                            page = (int)ViewBag.CurrentPage - 1 })" class="btn btn-default" disabled="disabled">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Trang trước</a>
+                } else
+                {
+                    <a href="@Url.Action("List", "Product", new {
+                        tagName = ViewBag.TagName, 
+                        page = (int)ViewBag.CurrentPage - 1 })" class="btn btn-default">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Trang trước</a>
+                }
+            </div>
+            <div class="btn-group">
+                @if (ViewBag.Next == "Disable")
+                {
+                    <a href="@Url.Action("List", "Product", new {
+                            tagName = ViewBag.TagName,
+                            page = (int)ViewBag.CurrentPage + 1 })" class="btn btn-default" disabled="disabled">
+                        Trang sau
+                        <i class="glyphicon glyphicon-chevron-right"></i></a>
+                } else
+                {
+                    <a href="@Url.Action("List", "Product", new {
+                        tagName = ViewBag.TagName,
+                        page = (int)ViewBag.CurrentPage + 1 })" class="btn btn-default">
+                    Trang sau
+                    <i class="glyphicon glyphicon-chevron-right"></i></a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script>
+    function product_click(element) {
+        alert("ok");
+        $(element).next(".p-detail").show();
+    }
+</script>*@

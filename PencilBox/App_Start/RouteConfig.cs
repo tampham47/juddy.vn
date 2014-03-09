@@ -16,13 +16,13 @@ namespace PencilBox
             routes.MapRoute(
                 name: "Pure",
                 url: "",
-                defaults: new { controller = "Product", action = "Index" }
+                defaults: new { controller = "Product", action = "List" }
             );
 
             routes.MapRoute(
                 name: "tagName",
                 url: "{tagName}",
-                defaults: new { controller = "Product", action = "Index" }
+                defaults: new { controller = "Product", action = "List" }
             );
 
             routes.MapRoute(

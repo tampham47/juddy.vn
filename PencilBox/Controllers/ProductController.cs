@@ -42,6 +42,58 @@ namespace PencilBox.Controllers
             return View(model);
         }
 
+        public ActionResult List(Guid? tagId, string tagName = "juddy", int page = 0)
+        {
+            int itemsPerPage = 36;
+            if (page < 0) page = 0;
+
+            bn_Product bnProduct = new bn_Product();
+            List<pb_Product> model = new List<pb_Product>();
+            int tmpPages;
+
+            if (!tagId.HasValue)
+            {
+                var tmpAll = bnProduct.GetByTagName(tagName).Count;
+                tmpPages = tmpAll / itemsPerPage;
+                if (tmpPages * itemsPerPage < tmpAll) tmpPages++;
+                tmpPages--;
+                if (page > tmpPages) page = tmpPages;
+
+                model = bnProduct.GetByTagName(tagName)
+                    .Skip(page * itemsPerPage)
+                    .Take(itemsPerPage).ToList();
+            }
+            else
+            {
+                var tmpAll = bnProduct.GetByHashTagId(tagId.Value).Count;
+                tmpPages = tmpAll / itemsPerPage;
+                if (tmpPages * itemsPerPage < tmpAll) tmpPages++;
+                tmpPages--;
+                if (page > tmpPages) page = tmpPages;
+
+                bn_HashTag bnHashtag = new bn_HashTag();
+                tagName = bnHashtag.GetById(tagId.Value).TagName;
+
+                model = bnProduct.GetByHashTagId(tagId.Value)
+                    .Skip(page * itemsPerPage)
+                    .Take(itemsPerPage).ToList();
+            }
+
+            if (page > 0)
+                ViewBag.Back = "OK";
+            else
+                ViewBag.Back = "Disable";
+
+            if (page < tmpPages)
+                ViewBag.Next = "OK";
+            else
+                ViewBag.Next = "Disable";
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TagName = tagName;
+            return View("Index", model);
+        }
+
         public ActionResult Category(string tag, string category)
         {
             bn_Product bnProduct = new bn_Product();

@@ -369,3 +369,19 @@ table .label {
 .btn-juddy:hover {
     background-color: #db143c;
 }
+
+.row {
+    margin-left:-3px;
+    margin-right:-3px;
+}
+
+.col-md-3, .col-md-12 {
+    padding-left:3px;
+    padding-right:3px;
+    margin-top:6px;
+}
+
+.thumbnail {
+    padding:2px;
+    background-color: #c1c1c1;
+}

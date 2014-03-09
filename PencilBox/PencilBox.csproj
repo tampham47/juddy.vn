@@ -853,6 +853,8 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
     <None Include="Properties\PublishProfiles\juddy.vn.pubxml" />
     <None Include="Properties\PublishProfiles\pbox.pubxml" />
     <None Include="Properties\PublishProfiles\pbox2.pubxml" />
